@@ -1,0 +1,47 @@
+
+html {
+    background-color: $dark;
+}
+
+#root {
+    background-color: $dark;
+}
+
+.bg-lava-cave {
+    background-image: url("../resources/LavaCave.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.card-body {
+    background-color: $gray-800;
+}
+
+.card-header {
+    background-color: $gray-700;
+}
+
+.card {
+    background-color: $gray-800;
+    color: $text-light;
+}
+
+.progress {
+    background-color: $gray-900;
+}
+
+.text-inset {
+    color: $inset;
+}
+
+.shadow-dark {
+    box-shadow: 0 0.5rem 1rem rgba(black, 0.75) !important
+}
+
+.fs-7 {
+    font-size: $font-size-base * 0.75;
+}
+
+.btn-discord {
+    @include button-variant($blurple, $blurple, $text-light, lighten($blurple, 5%), lighten($blurple, 5%), $text-light);
+}
