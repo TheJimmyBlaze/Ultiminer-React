@@ -10,9 +10,8 @@ const style = {
 const LoginHeader = () => {
     
     return (
-        <div className="p-4 d-flex align-items-center position-relative shadow-dark text-light">
-            <img src={MineTrolley} style={style.Logo}/>
-            <h4 className="m-0 ms-2">Ultiminer</h4>
+        <div className="p-3 d-flex justify-content-center bg-dark-gradient">
+            <img src={MineTrolley} style={style.Logo} />
         </div>
     )
 };

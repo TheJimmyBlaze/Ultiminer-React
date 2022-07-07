@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 const LoginSplash = () => {
 
     return (
-        <div className="d-flex flex-grow-1 w-100 bg-lava-cave">
+        <div className="d-flex flex-grow-1 w-100 bg-lava-cave vignette">
 
             <Container className="d-flex w-100 align-items-center">
                 <Row className="d-flex w-100 justify-content-end">

@@ -3,16 +3,20 @@ import { Card, Button } from 'react-bootstrap';
 const LoginForm = () => {
 
     return (
-        <Card className="p-4 position-relative shadow-dark">
-            <Card.Body>
+        <Card className="m-4 position-relative card-dark-gradient shadow-dark border-0">
+            <Card.Header>
+                <h5>Ultiminer</h5>
+            </Card.Header>
+            <Card.Body className="d-flex flex-column my-2">
 
-                <h2 className="text-light">Login</h2>
+                <h3> Mine, Level Up, Compete.</h3>
 
-                <p className="text-muted fs-5">
-                    Click rocks, level up, compete.
+                <p className="text-muted">
+                    A rock breaking incremental game.<br />
+                    Connect with Discord and start mining.
                 </p>
 
-                <Button className="btn-discord w-100 mt-4 fs-5">
+                <Button variant="discord" className="mt-4">
                     <i className="bi bi-discord" /> <b>Login with Discord</b>
                 </Button>
             </Card.Body>
