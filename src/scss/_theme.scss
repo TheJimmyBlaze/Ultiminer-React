@@ -2,6 +2,7 @@
 
 #root {
     background-color: $dark;
+    color: $text-light;
 }
 
 .card-header {
@@ -10,7 +11,6 @@
 
 .card {
     background-color: $gray-800;
-    color: $text-light;
 }
 
 .progress {
