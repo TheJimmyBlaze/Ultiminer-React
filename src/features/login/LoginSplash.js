@@ -9,7 +9,7 @@ const LoginSplash = () => {
 
             <Container className="d-flex w-100 align-items-center">
                 <Row className="d-flex w-100 justify-content-end">
-                    <Col xs="12" lg="4">
+                    <Col xs="12" md="6" xl="4">
                         <LoginForm/>
                     </Col>
                 </Row>

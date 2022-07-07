@@ -1,28 +1,6 @@
 
-html {
-    background-color: $dark;
-}
-
 #root {
     background-color: $dark;
-}
-
-.bg-lava-cave {
-    background-image: url("../resources/LavaCave.jpg");
-    background-position: center;
-    background-size: cover;
-}
-
-.vignette {
-  box-shadow: 0 0 256px black inset;
-}
-
-.bg-dark-gradient {
-    background-image: linear-gradient(to right, $gray-900, $gray-800, $gray-900);
-}
-
-.card-dark-gradient {
-    background-image: linear-gradient($gray-800, $gray-900);
 }
 
 .card-header {
@@ -40,10 +18,6 @@ html {
 
 .text-inset {
     color: $inset;
-}
-
-.shadow-dark {
-    box-shadow: 0 0.5rem 1rem rgba(black, 0.75) !important
 }
 
 .fs-7 {

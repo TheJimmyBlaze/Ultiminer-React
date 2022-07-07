@@ -10,7 +10,7 @@ const style = {
 const LoginHeader = () => {
     
     return (
-        <div className="p-3 d-flex justify-content-center bg-dark-gradient">
+        <div className="p-3 d-flex justify-content-center">
             <img src={MineTrolley} style={style.Logo} />
         </div>
     )

@@ -3,6 +3,8 @@ import LoginHeader from './LoginHeader';
 import LoginFooter from './LoginFooter';
 import LoginSplash from './LoginSplash';
 
+import './Login.css';
+
 const Login = () => {
 
     return (
