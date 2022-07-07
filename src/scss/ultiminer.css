@@ -11302,30 +11302,30 @@ textarea.form-control-lg {
 
 .btn-discord {
   color: #e9ecef;
-  background-color: #7289DA;
-  border-color: #7289DA;
+  background-color: #5865F2;
+  border-color: #5865F2;
 }
 .btn-discord:hover {
   color: #e9ecef;
-  background-color: #869adf;
-  border-color: #869adf;
+  background-color: #4b56ce;
+  border-color: #4651c2;
 }
 .btn-check:focus + .btn-discord, .btn-discord:focus {
   color: #e9ecef;
-  background-color: #869adf;
-  border-color: #869adf;
-  box-shadow: 0 0 0 0.25rem rgba(132, 152, 221, 0.5);
+  background-color: #4b56ce;
+  border-color: #4651c2;
+  box-shadow: 0 0 0 0.25rem rgba(110, 121, 242, 0.5);
 }
 .btn-check:checked + .btn-discord, .btn-check:active + .btn-discord, .btn-discord:active, .btn-discord.active, .show > .btn-discord.dropdown-toggle {
   color: #e9ecef;
-  background-color: #5b6eae;
-  border-color: #5667a4;
+  background-color: #4651c2;
+  border-color: #424cb6;
 }
 .btn-check:checked + .btn-discord:focus, .btn-check:active + .btn-discord:focus, .btn-discord:active:focus, .btn-discord.active:focus, .show > .btn-discord.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgba(132, 152, 221, 0.5);
+  box-shadow: 0 0 0 0.25rem rgba(110, 121, 242, 0.5);
 }
 .btn-discord:disabled, .btn-discord.disabled {
-  color: #212529;
-  background-color: #7289DA;
-  border-color: #7289DA;
+  color: #e9ecef;
+  background-color: #5865F2;
+  border-color: #5865F2;
 }/*# sourceMappingURL=ultiminer.css.map */
