@@ -18,7 +18,7 @@
 }
 
 .text-inset {
-    color: $inset;
+    color: color.scale($dark, $lightness: -25%);
 }
 
 .fs-7 {

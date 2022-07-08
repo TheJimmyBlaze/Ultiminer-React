@@ -1,15 +1,24 @@
-import { useLocation } from 'react-router-dom';
-import queryString from 'query-string';
+import { useState, useEffect } from "react";
+import { useDiscordAuth } from "../discord/useDiscordAuth";
 
 const Authentication = () => {
 
-    const location = useLocation();
-    const parameters = queryString.parse(location.search)
+    const [authCode, setAuthCode] = useState(null);
+    
+    const { verifyOAuthState } = useDiscordAuth();
 
-    console.log(parameters);
+    useEffect(() => {
 
-    return <h1>Code: {parameters.code}<br />State: {parameters.state}</h1>
+        const authCode = verifyOAuthState();
+        setAuthCode(authCode);
 
+    }, []);
+
+    return (
+        <h1 className="text-inset">
+            <i className="fa fa-circle-notch fa-spin" />
+        </h1>
+    )
 };
 
 export default Authentication;

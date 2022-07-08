@@ -5,7 +5,7 @@ import { useDiscordAuth } from '../discord/useDiscordAuth';
 const DiscordLoginButton = () => {
 
     const [working, setWorking] = useState(false);
-    const [discordOAuthRedirect] = useDiscordAuth();
+    const { discordOAuthRedirect } = useDiscordAuth();
 
     const login = useCallback(() => {
 

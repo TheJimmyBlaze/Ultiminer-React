@@ -2,7 +2,9 @@ import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 import Cookies from 'universal-cookie';
 
-export const useStateCookie = (stateName) => {
+export const useStateCookie = () => {
+
+    const discordStateName = "DISCORD_OAUTH_STATE";
 
     const cookies = new Cookies();
 
@@ -10,7 +12,7 @@ export const useStateCookie = (stateName) => {
         
         const state = uuid();
 
-        cookies.set(stateName, 
+        cookies.set(discordStateName, 
             state,
             {
                 path: '/',
@@ -21,9 +23,9 @@ export const useStateCookie = (stateName) => {
         return state;
     };
 
-    const getStateCookie = () => (
-        cookies.get(stateName)
-    );
+    const getStateCookie = () => cookies.get(discordStateName);
 
-    return [setStateCookie, getStateCookie];
-}
+    const removeStateCookie = () => cookies.remove(discordStateName);
+
+    return { setStateCookie, getStateCookie, removeStateCookie };
+};
