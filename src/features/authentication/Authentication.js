@@ -3,6 +3,7 @@ import { useNavigate  } from 'react-router-dom';
 import { useDiscordAuth } from '../discord/useDiscordAuth';
 import { useTokenExchange } from './useTokenExchange';
 import { useTokenCookie } from '../cookies/useTokenCookie';
+import Spinner from '../common/Spinner';
 import AuthenticationFailed from './AuthenticationFailed';
 
 const Authentication = () => {
@@ -30,19 +31,15 @@ const Authentication = () => {
             //If response was not success and we're still here, there was an error :(
             setLoading(false);
         });
-
-
     }, []);
 
     return (
         <>
-        {
-            loading ?
-                <h1 className="text-inset">
-                    <i className="fa fa-circle-notch fa-spin"/>
-                </h1> :
-                <AuthenticationFailed />
-        }
+            {
+                loading ?
+                    <Spinner /> :
+                    <AuthenticationFailed />
+            }
         </>
     )
 };
