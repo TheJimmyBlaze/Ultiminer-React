@@ -1,36 +1,21 @@
 import { useState, useEffect } from 'react';
-import { useNavigate  } from 'react-router-dom';
-import { useTokenCookie } from '../cookies/useTokenCookie';
 import Spinner from '../common/Spinner';
-import Logout from '../authentication/Logout';
+import { useAuthentication } from '../authentication/useAuthentication';
+import { Button } from 'react-bootstrap';
 
 const Home = () => {
 
-    const navigate = useNavigate();
-
     const [token, setToken] = useState(true);
 
-    const { getTokenCookie, removeTokenCookie } = useTokenCookie();
+    const { validateToken, logout } = useAuthentication();
 
     useEffect(() => {
         
-        const token = getTokenCookie();
-
-        //TODO: create useToken hook to get extract data from cookie.
-        //TODO: check if the data inside the token has expired when logging out.
-
-        if (!token) {
-            return logout();
-        }
-
+        const token = validateToken();
         setToken(token);
     }, []);
 
-    const logout = () => {
-
-        removeTokenCookie();
-        return navigate('/login');
-    };
+    const handleLogout = () => logout();
 
     return (
         <>
@@ -38,7 +23,9 @@ const Home = () => {
                 token ? 
                     <div className="d-flex flex-column">
                         <p>Hello <i className="fa fa-smile"/></p>
-                        <Logout logout={logout.bind(this)}/>
+                        <Button variant="danger" onClick={() => handleLogout()}>
+                            Logout
+                        </Button>                        
                     </div> :
                     <Spinner />
             }

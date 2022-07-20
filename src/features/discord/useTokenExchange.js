@@ -11,7 +11,6 @@ export const useTokenExchange = () => {
         const request = { auth_code: authCode };
         const response = await axios.post(route, request)
             .then(response => {
-                console.log(response);
                 return {
                     success: true,
                     token: response.data.value
@@ -28,5 +27,5 @@ export const useTokenExchange = () => {
         return response;
     };
 
-    return { exchangeAuthCode };
+    return exchangeAuthCode;
 };

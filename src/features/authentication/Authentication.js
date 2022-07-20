@@ -1,42 +1,26 @@
 import { useState, useEffect } from 'react';
-import { useNavigate  } from 'react-router-dom';
-import { useDiscordAuth } from '../discord/useDiscordAuth';
-import { useTokenExchange } from './useTokenExchange';
-import { useTokenCookie } from '../cookies/useTokenCookie';
+import { useAuthentication } from './useAuthentication';
 import Spinner from '../common/Spinner';
 import AuthenticationFailed from './AuthenticationFailed';
 
 const Authentication = () => {
     
-    const navigate = useNavigate();
+    const [working, setWorking] = useState(true);
 
-    const [loading, setLoading] = useState(true);
-
-    const { verifyOAuthState } = useDiscordAuth();
-    const { exchangeAuthCode } = useTokenExchange();
-    const { setTokenCookie } = useTokenCookie();
+    const { receiveToken } = useAuthentication();
 
     useEffect(() => {
 
-        const authCode = verifyOAuthState();
-        exchangeAuthCode(authCode).then(response => {
-
-            if (response.success) {
-
-                const token = response.token;
-                setTokenCookie(token.access_token, token.expires_in);
-                return navigate('/');
-            }
-
-            //If response was not success and we're still here, there was an error :(
-            setLoading(false);
-        });
+        const authFailure = receiveToken();
+        if (authFailure) {
+            setWorking(true);
+        }
     }, []);
 
     return (
         <>
             {
-                loading ?
+                working ?
                     <Spinner /> :
                     <AuthenticationFailed />
             }
