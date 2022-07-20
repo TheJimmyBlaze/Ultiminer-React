@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { useDiscordAuth } from '../discord/useDiscordAuth';
-import { useTokenExchange } from  '../api/useTokenExchange';
+import { useTokenExchange } from './useTokenExchange';
 
 const Authentication = () => {
     
     const { verifyOAuthState } = useDiscordAuth();
+    const { exchangeAuthCode } = useTokenExchange();
 
     useEffect(() => {
 
         const authCode = verifyOAuthState();
+        exchangeAuthCode(authCode);
 
     }, []);
 

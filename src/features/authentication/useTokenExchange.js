@@ -8,10 +8,12 @@ export const useTokenExchange = () => {
     const exchangeAuthCode = authCode => {
 
         const route = `${config.ultiminerURL}/DiscordAuthCode`;
-        axios.post(route, authCode)
+        const request = { auth_code: authCode };
+        axios.post(route, request)
             .then(response => {
                 console.log(response);
-            });
+            })
+            .catch(err => console.error(`Error: ${err}`));
     };
 
     return { exchangeAuthCode };
