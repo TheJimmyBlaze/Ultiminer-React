@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 
 const Home = () => {
 
-    const [token, setToken] = useState(true);
+    const [token, setToken] = useState(null);
 
     const { validateToken, logout } = useAuthentication();
 

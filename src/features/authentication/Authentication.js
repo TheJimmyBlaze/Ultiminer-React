@@ -11,10 +11,9 @@ const Authentication = () => {
 
     useEffect(() => {
 
-        const authFailure = receiveToken();
-        if (authFailure) {
-            setWorking(true);
-        }
+        receiveToken().then(error => {
+            setWorking(false);
+        });
     }, []);
 
     return (

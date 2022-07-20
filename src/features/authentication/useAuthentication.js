@@ -11,10 +11,10 @@ export const useAuthentication = () => {
     const exchangeAuthCode = useTokenExchange();
     const { setTokenCookie, getTokenCookie, removeTokenCookie } = useTokenCookie();
 
-    const receiveToken = () => {
+    const receiveToken = async () => {
 
         const authCode = verifyOAuthState();
-        exchangeAuthCode(authCode).then(response => {
+        await exchangeAuthCode(authCode).then(response => {
  
             if (response.success) {
 
