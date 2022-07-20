@@ -14,8 +14,8 @@ const DiscordLoginButton = () => {
 
     }, [working, setWorking, discordOAuthRedirect]);
 
-    const buttonText = <b><i className="fa-brands fa-discord" /> Login with Discord</b>
-    const workingText = <i className="fa fa-circle-notch fa-spin" />;
+    const buttonText = <b><i className='fa-brands fa-discord' /> Login with Discord</b>
+    const workingText = <i className='fa fa-circle-notch fa-spin' />;
     
     return (
         <Button variant="discord" 

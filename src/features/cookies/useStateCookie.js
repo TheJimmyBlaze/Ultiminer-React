@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 
 export const useStateCookie = () => {
 
-    const discordStateName = "DISCORD_OAUTH_STATE";
+    const discordStateName = 'DISCORD_OAUTH_STATE';
 
     const cookies = new Cookies();
 

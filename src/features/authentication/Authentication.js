@@ -1,16 +1,14 @@
-import { useState, useEffect } from "react";
-import { useDiscordAuth } from "../discord/useDiscordAuth";
+import { useState, useEffect } from 'react';
+import { useDiscordAuth } from '../discord/useDiscordAuth';
+import { useTokenExchange } from  '../api/useTokenExchange';
 
 const Authentication = () => {
-
-    const [authCode, setAuthCode] = useState(null);
     
     const { verifyOAuthState } = useDiscordAuth();
 
     useEffect(() => {
 
         const authCode = verifyOAuthState();
-        setAuthCode(authCode);
 
     }, []);
 
