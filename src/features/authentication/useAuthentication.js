@@ -14,26 +14,24 @@ export const useAuthentication = () => {
     const receiveToken = async () => {
 
         const authCode = verifyOAuthState();
-        await exchangeAuthCode(authCode).then(response => {
+        const response = await exchangeAuthCode(authCode);
  
-            if (response.success) {
+        const token = response.token;
+        if (token) {
 
-                const token = response.token;
-                setTokenCookie(token.access_token, token.expires_in);
-                return navigate('/');
-            }
+            setTokenCookie(token.access_token, token.expires_in);
+            return navigate('/', { replace: true });
+        }
 
-            //If response was not success and we're still here, there was an error :(
-            return(response.error);
-        });
+        //If response was not success and we're still here, there was an error :(
+        return(response.error);
     };
 
     const validateToken = () => {
 
         const token = getTokenCookie();
 
-        //TODO: create useToken hook to get extract data from cookie.
-        //TODO: check if the data inside the token has expired when logging out.
+        //TODO: expires cookies should also result in a logout.
 
         if (!token) {
             return logout();
@@ -45,7 +43,7 @@ export const useAuthentication = () => {
     const logout = () => {
 
         removeTokenCookie();
-        return navigate('/login');
+        return navigate('/login', { replace: true });
     }
 
     return { receiveToken, validateToken, logout };

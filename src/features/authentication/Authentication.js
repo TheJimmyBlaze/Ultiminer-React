@@ -11,7 +11,7 @@ const Authentication = () => {
 
     useEffect(() => {
 
-        receiveToken().then(error => {
+        receiveToken().then(_ => {
             setWorking(false);
         });
     }, []);

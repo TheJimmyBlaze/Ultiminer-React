@@ -7,24 +7,26 @@ export const useTokenExchange = () => {
 
     const exchangeAuthCode = async authCode => {
 
-        const route = `${config.ultiminerURL}/DiscordAuthCode`;
-        const request = { auth_code: authCode };
-        const response = await axios.post(route, request)
-            .then(response => {
-                return {
-                    success: true,
-                    token: response.data.value
-                };
-            })
-            .catch(error => {
-                console.error(`Login Error: ${error}`)
-                return {
-                    success: false,
-                    error
-                };
-            });
+        let token = null;
+        let error = null;
 
-        return response;
+        try {
+
+            const route = `${config.ultiminerURL}/DiscordAuthCode`;
+            const request = { auth_code: authCode };
+            const response = await axios.post(route, request);
+
+            token = response.data.value;
+
+        } catch (err) {
+            console.error(`Login Error: ${err}`);
+            error = err;
+        }
+        
+        return {
+            token,
+            error
+        };
     };
 
     return exchangeAuthCode;
