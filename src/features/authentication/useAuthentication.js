@@ -20,7 +20,7 @@ export const useAuthentication = () => {
         if (token) {
 
             setTokenCookie(token.access_token, token.expires_in);
-            return navigate('/', { replace: true });
+            return navigate('/');
         }
 
         //If response was not success and we're still here, there was an error :(
