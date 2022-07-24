@@ -1,8 +1,20 @@
 
+.bg-lava-cave-tiny {
+  background-image: url("../../resources/LavaCaveTiny.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.bg-lava-cave-small {
+  background-image: url("../../resources/LavaCaveSmall.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
 .bg-lava-cave {
-    background-image: url("../../resources/LavaCave.jpg");
-    background-position: center;
-    background-size: cover;
+  background-image: url("../../resources/LavaCave.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .vignette {
@@ -10,5 +22,5 @@
 }
 
 .shadow-dark {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.75) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.75) !important;
 }
