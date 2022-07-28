@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Spinner from '../common/Spinner';
 import { useAuthentication } from '../authentication/useAuthentication';
 import { Button } from 'react-bootstrap';
+import MiningForm from '../mining/MiningForm';
 
 const Home = () => {
 
@@ -21,9 +22,10 @@ const Home = () => {
         <>
             {
                 token ? 
-                    <div className="d-flex flex-column">
-                        <p>Hello :&#41;</p>
-                        <Button variant="danger" onClick={() => handleLogout()}>
+                    <div className="d-flex flex-column justify-content-center align-items-center w-100">
+                        <MiningForm />
+                        <Button variant="danger"
+                            onClick={() => handleLogout()}>
                             Logout
                         </Button>                        
                     </div> :

@@ -26,5 +26,5 @@
 }
 
 .btn-discord {
-    @include button-variant($blurple, $blurple, $text-light);
+    @include button-variant($blurple, $blurple);
 }
