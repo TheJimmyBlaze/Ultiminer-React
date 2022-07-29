@@ -6,9 +6,16 @@ import TimeDefusedButton from '../common/TimeDefusedButton';
 const MiningButtons = () => {
 
     const [backOffUntil, setBackOffUntil] = useState();
+    const [testDisabled, setTestDisabled] = useState(false);
 
     const pushBackOff = () => {
-        setBackOffUntil(moment().add(3, "seconds"));
+        
+        setTestDisabled(true);
+
+        setTimeout(() => {
+            setBackOffUntil(moment().add(3, "seconds"));
+            setTestDisabled(false);
+        }, 2000);
     }
 
     return (
@@ -18,9 +25,14 @@ const MiningButtons = () => {
                 className="mine-button w-100 p-0"
                 onClick={() => pushBackOff()}
                 defusedAt={backOffUntil}
-                >
+                disabled={testDisabled}>
 
-                <i className="fa-solid fa-bolt" /> Mine
+                <div hidden={!testDisabled}>
+                    <i className="fa fa-circle-notch fa-spin" />
+                </div>
+                <div hidden={testDisabled}>
+                    <i className="fa-solid fa-bolt"/> Mine
+                </div>
             </TimeDefusedButton>
 
             <div className="d-flex w-100 justify-content-end">

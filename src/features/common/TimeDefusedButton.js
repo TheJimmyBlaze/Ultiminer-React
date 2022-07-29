@@ -8,10 +8,11 @@ const TimeDefusedButton = memo(({
     onClick,
     variant,
     className,
+    disabled,
     children
 }) => {
 
-    const [totalDefuseTime, setTotalDefuseTime] = useState(moment.duration(0));
+    const [totalDefuseTime, setTotalDefuseTime] = useState(0);
     const [defusedIn, setDefusedIn] = useState(moment.duration(0));
 
     const isDefused = useMemo(() => moment() >= moment(defusedAt), [defusedIn, defusedAt]);
@@ -19,6 +20,10 @@ const TimeDefusedButton = memo(({
     const countDown = useMemo(() => `${defusedIn.seconds()}.${parseInt(defusedIn.milliseconds() / 100, 10)}`, [defusedIn]);
     
     const percentRemaining = useMemo(() => {
+
+        if (disabled) {
+            return 0;
+        }
 
         if (isDefused) {
             return 100;
@@ -30,7 +35,7 @@ const TimeDefusedButton = memo(({
         const remaining = 100 - 100 * percentage;
         return remaining;
 
-    }, [defusedIn]);
+    }, [defusedIn, disabled]);
 
     useEffect(() => {
         setTotalDefuseTime(moment.duration(moment(defusedAt).diff(moment())).asMilliseconds());
@@ -41,7 +46,11 @@ const TimeDefusedButton = memo(({
         const render = setTimeout(() => {
 
             if (!isDefused) {
+                console.log("render");
                 setDefusedIn(moment.duration(moment(defusedAt).diff(moment())));
+            } else {
+                setTotalDefuseTime(0);
+                setDefusedIn(moment.duration(0));
             }
 
         }, frameRate);
@@ -54,7 +63,7 @@ const TimeDefusedButton = memo(({
         <Button variant={variant}
             className={className}
             onClick={onClick}
-            disabled={!isDefused}>
+            disabled={!isDefused || disabled}>
             
                 <div className="position-relative h-100 w-100">
 
