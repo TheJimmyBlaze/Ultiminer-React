@@ -1,8 +1,17 @@
 @use 'sass:color';
 
+$dark-shade-percentage: 100% * (1 - $btn-disabled-opacity);
+
 #root {
     background-color: $dark;
     color: $text-light;
+
+    --primary-dark: #{ mix(black, $primary, $dark-shade-percentage) };
+    --secondary-dark: #{ mix(black, $secondary, $dark-shade-percentage) };
+    --success-dark: #{ mix(black, $success, $dark-shade-percentage) };
+    --danger-dark: #{ mix(black, $danger, $dark-shade-percentage) };
+    --warning-dark: #{ mix(black, $warning, $dark-shade-percentage) };
+    --info-dark: #{ mix(black, $info, $dark-shade-percentage) };
 }
 
 .card-header {
@@ -23,6 +32,10 @@
 
 .fs-7 {
     font-size: $font-size-base * 0.75;
+}
+
+.btn-primary {
+    @include button-variant($primary, $primary, $color: $text-dark, $active-color: $text-dark, $disabled-color: $text-dark);
 }
 
 .btn-discord {

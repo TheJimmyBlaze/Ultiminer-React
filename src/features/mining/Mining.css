@@ -10,3 +10,11 @@
 .mine-button {
     max-width: 10rem;
 }
+
+.mine-button.btn:disabled {
+    opacity: inherit;
+}
+
+.mine-button .progress {
+    background-color: var(--primary-dark);
+}

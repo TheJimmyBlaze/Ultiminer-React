@@ -2,7 +2,8 @@
 $min-contrast-ratio: 2.5;
 
 $blurple: #5865F2;
-$orange: #FCA314;
+$yerrow: #FCA314;
+$oranger: #FC9014;
 
 $gray-100: #f8f9fa;
 $gray-200: #e9ecef;
@@ -16,11 +17,13 @@ $gray-900: #212529;
 $white: $gray-200;
 $black: $gray-900;
 
-$primary: $orange;
+$primary: $yerrow;
 $secondary: $gray-700;
+$warning: $oranger;
 
 $dark: $gray-900;
 $light: $gray-200;
 
-$text-light: $gray-200;
+$text-light: $light;
+$text-dark: $dark;
 $text-muted: $gray-600;
