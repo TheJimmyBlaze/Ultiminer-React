@@ -3,7 +3,7 @@ import { Button, ProgressBar } from 'react-bootstrap';
 import moment from 'moment';
 
 const TimeDefusedButton = memo(({
-    frameRate = 100,
+    frameRate = 50,
     defusedAt,
     onClick,
     variant,
