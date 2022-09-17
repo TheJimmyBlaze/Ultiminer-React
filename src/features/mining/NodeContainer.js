@@ -1,12 +1,11 @@
-import StoneNode from "./nodes/Stone";
+import StoneNode from "./nodes/StoneNode";
 
 const NodeContainer = () => {
 
     return (
-        <div className="d-flex justify-content-center"
-            style={{padding: "200px"}}>
-            <div className="position-relative"
-                style={{width: "8px", height: "8px", background: "red"}}>
+        <div className="d-flex justify-content-center node-container">
+            <div className="position-relative">
+
                 <StoneNode />
             </div>
         </div>

@@ -10,7 +10,7 @@ const StoneNode = memo(({
 }) => {
 
     return (
-        <>
+        <section>
             <img className="position-absolute translate-middle"
                 style={{left: "0px", top: "-30px"}}
                 src={StoneMain}/>
@@ -26,7 +26,8 @@ const StoneNode = memo(({
             <img className="position-absolute translate-middle"
                 style={{left: "-20px", top: "160px"}}
                 src={StonePebble}/>
-        </>
+        </section>
+                
     )
 });
 
