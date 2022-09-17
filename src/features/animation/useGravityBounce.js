@@ -2,14 +2,14 @@ import moment from 'moment';
 
 export const useGravityBounce = () => {
 
-    const gravity = 0.001;                      //Pixels per millisecond
+    const gravity = 0.0015;                      //Pixels per millisecond
     const terminalVelocity = 64;                //Pixels per millisecond
 
     //Percent of velocity retained (inverted) when bouncing off the floor
     const bounciness = 0.25;
 
     //If the absolute velocity is less than the terminal stop the bounce
-    const bounceTerminationVelocity = 0.08;     //Pixels per millisecond
+    const bounceTerminationVelocity = 0.1;     //Pixels per millisecond
 
     const update = ({
         lastUpdate,
@@ -45,11 +45,9 @@ export const useGravityBounce = () => {
             if (Math.abs(newVelocity) < bounceTerminationVelocity) {
                 newVelocity = 0;
             }
-            console.log("Bounce");
         }
 
         //Update state
-        console.log(`Velocity: ${newVelocity}`);
         setVelocityY(newVelocity);
         setY(newY);
 

@@ -4,8 +4,8 @@
 }
 
 .animated-node-element {
-    transition: top 60ms linear;
-    transform: left 60ms linear;
+    transition: top 100ms, left 100ms, opacity 500ms;
+    transition-timing-function: ease;
 }
 
 .other-button {

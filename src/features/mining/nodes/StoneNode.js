@@ -10,15 +10,18 @@ import SpriteRight from '../../../resources/nodes/stone/stone_right.png';
 import SpritePebble from '../../../resources/nodes/stone/stone_pebble.png';
 
 const StoneMain = memo(({
+    firstUpdate,
     lastUpdate,
     settledSum,
     destroyed
 }) => {
 
     const initX = 0;
-    const initY = -280;
+    const initY = -300;
 
     const floor = -30;
+
+    const spawnDelay = 100;
 
     const [velocityX, setVelocityX] = useState(0);
     const [velocityY, setVelocityY] = useState(0);
@@ -30,9 +33,13 @@ const StoneMain = memo(({
 
     const update = useGravityBounce();
 
+    const isReady = () => {
+        return lastUpdate.diff(firstUpdate) >= spawnDelay;
+    }
+
     useEffect(() => {
 
-        if (settled.current) {
+        if (settled.current || !isReady()) {
             return;
         }
 
@@ -50,12 +57,13 @@ const StoneMain = memo(({
 
     return (
         <img className="position-absolute translate-middle animated-node-element"
-            style={{left: `${x}px`, top: `${y}px`}}
+            style={{left: `${x}px`, top: `${y}px`, opacity: +isReady()}}
             src={SpriteMain}/>
     )
 });
 
 const StoneLeft = memo(({
+    firstUpdate,
     lastUpdate,
     settledSum,
     destroyed
@@ -66,6 +74,8 @@ const StoneLeft = memo(({
 
     const floor = 35;
 
+    const spawnDelay = 300;
+
     const [velocityX, setVelocityX] = useState(0);
     const [velocityY, setVelocityY] = useState(0);
 
@@ -76,9 +86,13 @@ const StoneLeft = memo(({
 
     const update = useGravityBounce();
 
+    const isReady = () => {
+        return lastUpdate.diff(firstUpdate) >= spawnDelay;
+    }
+
     useEffect(() => {
 
-        if (settled.current) {
+        if (settled.current || !isReady()) {
             return;
         }
 
@@ -96,25 +110,28 @@ const StoneLeft = memo(({
 
     return (
         <img className="position-absolute translate-middle animated-node-element"
-            style={{left: `${x}px`, top: `${y}px`}}
+            style={{left: `${x}px`, top: `${y}px`, opacity: +isReady()}}
             src={SpriteLeft}/>
     )
 });
 
 const StoneRight = memo(({
+    firstUpdate,
     lastUpdate,
     settledSum,
     destroyed
 }) => {
 
     const initX = 120;
-    const initY = -280;
+    const initY = -300;
 
     const [velocityX, setVelocityX] = useState(0);
     const [velocityY, setVelocityY] = useState(0);
 
     const floor = 50;
 
+    const spawnDelay = 500;
+
     const [x, setX] = useState(initX);
     const [y, setY] = useState(initY);
 
@@ -122,9 +139,13 @@ const StoneRight = memo(({
 
     const update = useGravityBounce();
 
+    const isReady = () => {
+        return lastUpdate.diff(firstUpdate) >= spawnDelay;
+    }
+
     useEffect(() => {
 
-        if (settled.current) {
+        if (settled.current || !isReady()) {
             return;
         }
 
@@ -142,24 +163,27 @@ const StoneRight = memo(({
 
     return (
         <img className="position-absolute translate-middle animated-node-element"
-            style={{left: `${x}px`, top: `${y}px`}}
+            style={{left: `${x}px`, top: `${y}px`, opacity: +isReady()}}
             src={SpriteRight}/>
     )
 });
 
 const StonePebble = memo(({
+    firstUpdate,
     lastUpdate,
     settledSum,
     destroyed
 }) => {
 
     const initX = -20;
-    const initY = -200;
+    const initY = -300;
+
+    const floor = 160;
+
+    const spawnDelay = 600;
 
     const [velocityX, setVelocityX] = useState(0);
     const [velocityY, setVelocityY] = useState(0);
-
-    const floor = 160;
 
     const [x, setX] = useState(initX);
     const [y, setY] = useState(initY);
@@ -168,9 +192,13 @@ const StonePebble = memo(({
 
     const update = useGravityBounce();
 
+    const isReady = () => {
+        return lastUpdate.diff(firstUpdate) >= spawnDelay;
+    }
+
     useEffect(() => {
 
-        if (settled.current) {
+        if (settled.current || !isReady()) {
             return;
         }
 
@@ -188,7 +216,7 @@ const StonePebble = memo(({
 
     return (
         <img className="position-absolute translate-middle animated-node-element"
-            style={{left: `${x}px`, top: `${y}px`}}
+            style={{left: `${x}px`, top: `${y}px`, opacity: +isReady()}}
             src={SpritePebble}/>
     )
 });
@@ -203,6 +231,8 @@ const StoneNode = ({
     const totalElements = 4;
     const settledSum = useRef(0);
 
+    const firstUpdate = useRef(moment());
+
     useEffect(() => {
 
         if (settledSum.current == totalElements) {
@@ -211,7 +241,6 @@ const StoneNode = ({
 
         const preRenderTime = moment();
         const render = setTimeout(() => {
-            console.log(`Render: ${preRenderTime.millisecond()}`);
             setLastUpdate(preRenderTime);
         }, frameRate)
 
@@ -220,27 +249,31 @@ const StoneNode = ({
     }, [lastUpdate]);
 
     useEffect(() => {
-        setLastUpdate(moment());
+        setLastUpdate(firstUpdate.current);
     }, [])
 
     return (
         <div>
             <StoneMain 
+                firstUpdate={firstUpdate.current}
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
                 destroyed={destroyed}
             />
             <StoneLeft 
+                firstUpdate={firstUpdate.current}
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
                 destroyed={destroyed}
             />
             <StoneRight 
+                firstUpdate={firstUpdate.current}
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
                 destroyed={destroyed}
             />
             <StonePebble 
+                firstUpdate={firstUpdate.current}
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
                 destroyed={destroyed}
