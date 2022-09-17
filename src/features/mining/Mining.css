@@ -3,6 +3,11 @@
     padding: 256px;
 }
 
+.animated-node-element {
+    transition: top 60ms linear;
+    transform: left 60ms linear;
+}
+
 .other-button {
     max-width: 6rem;
 }

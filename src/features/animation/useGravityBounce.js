@@ -2,21 +2,21 @@ import moment from 'moment';
 
 export const useGravityBounce = () => {
 
-    const gravity = 0.00981;                    //Pixels per millisecond
-    const terminalVelocity = 0.064;             //Pixels per millisecond
+    const gravity = 0.001;                      //Pixels per millisecond
+    const terminalVelocity = 64;                //Pixels per millisecond
 
     //Percent of velocity retained (inverted) when bouncing off the floor
     const bounciness = 0.25;
 
     //If the absolute velocity is less than the terminal stop the bounce
-    const bounceTerminationVelocity = 0.004;    //Pixels per millisecond
+    const bounceTerminationVelocity = 0.08;     //Pixels per millisecond
 
     const update = ({
         lastUpdate,
-        velocityX,
-        setVelocityX,
-        x,
-        setX,
+        velocityY,
+        setVelocityY,
+        y,
+        setY,
         floor
     }) => {
 
@@ -24,36 +24,38 @@ export const useGravityBounce = () => {
         const delta = moment().diff(lastUpdate);
 
         //Update velocity
-        let newVelocity = velocityX;
+        let newVelocity = velocityY;
         if (newVelocity < terminalVelocity) {
 
             const deltaVelocity = delta * gravity;
             //Clamp velocity to terminal velocity
-            newVelocity = Math.min(velocityX + deltaVelocity, terminalVelocity);
+            newVelocity = Math.min(velocityY + deltaVelocity, terminalVelocity);
         }
 
         //Update position
-        const deltaX = delta * velocityX;
-        let newX = x + deltaX;
+        const deltaY = delta * velocityY;
+        let newY = y + deltaY;
 
         //Perform bounce (clamp to floor, reverse velocity)
-        if (newX > floor) {
+        if (newY > floor) {
             
-            newX = floor;
-            newVelocity = newVelocity * -bounciness;
+            newY = floor;
+            newVelocity = newVelocity * (-bounciness);
 
             if (Math.abs(newVelocity) < bounceTerminationVelocity) {
                 newVelocity = 0;
             }
+            console.log("Bounce");
         }
 
         //Update state
-        setVelocityX(newVelocity);
-        setX(newX);
+        console.log(`Velocity: ${newVelocity}`);
+        setVelocityY(newVelocity);
+        setY(newY);
 
         //If the velocity is 0, the bounce animation is finished
         return newVelocity == 0;
     };
 
-    return { update };
+    return update;
 };
