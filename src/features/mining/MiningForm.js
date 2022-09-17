@@ -6,7 +6,7 @@ import NodeContainer from "./NodeContainer";
 const MiningForm = () => {
 
     return (
-        <div className="mining-container w-100">
+        <div>
 
             <NodeContainer />
 

@@ -1,12 +1,6 @@
 
-.mining-container {
-    max-width: 32rem;
-    overflow: hidden;
-}
-
 .node-container {
     padding: 256px;
-    background: radial-gradient(var(--bs-gray-800), transparent 70%)
 }
 
 .other-button {
