@@ -130,7 +130,7 @@ const StoneRight = memo(({
 
     const floor = 50;
 
-    const spawnDelay = 500;
+    const spawnDelay = 400;
 
     const [x, setX] = useState(initX);
     const [y, setY] = useState(initY);
@@ -180,7 +180,7 @@ const StonePebble = memo(({
 
     const floor = 160;
 
-    const spawnDelay = 600;
+    const spawnDelay = 500;
 
     const [velocityX, setVelocityX] = useState(0);
     const [velocityY, setVelocityY] = useState(0);
