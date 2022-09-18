@@ -6,6 +6,7 @@
 .animated-node-element {
     transition: top 100ms, left 100ms, opacity 500ms;
     transition-timing-function: ease;
+    user-select: none;
 }
 
 .other-button {

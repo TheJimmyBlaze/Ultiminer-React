@@ -45,7 +45,6 @@ export const useGravityBounce = () => {
         setVelocityY(newVelocity);
         setY(newY);
 
-        //If the velocity is 0, the bounce animation is finished
         return newVelocity == 0;
     };
 

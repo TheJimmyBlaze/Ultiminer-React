@@ -11,10 +11,11 @@ import SpriteRight from '../../../resources/nodes/stone/stone_right.png';
 import SpritePebble from '../../../resources/nodes/stone/stone_pebble.png';
 
 const StoneMain = memo(({
-    firstUpdate,
     lastUpdate,
-    settledSum,
-    destroyed
+    lastMine,
+    outroDuration,
+    resetDelay,
+    settledSum
 }) => {
 
     const initX = 0;
@@ -31,19 +32,22 @@ const StoneMain = memo(({
             floor={floor}
 
             introDelay={introDelay}
-            settledSum={settledSum}
+            outroDuration={outroDuration}
+            resetDelay={resetDelay}
 
-            firstUpdate={firstUpdate}
+            lastMine={lastMine}
+            settledSum={settledSum}
             lastUpdate={lastUpdate}
         />
     )
 });
 
 const StoneLeft = memo(({
-    firstUpdate,
     lastUpdate,
-    settledSum,
-    destroyed
+    lastMine,
+    outroDuration,
+    resetDelay,
+    settledSum
 }) => {
 
     const initX = -125;
@@ -60,19 +64,22 @@ const StoneLeft = memo(({
             floor={floor}
 
             introDelay={introDelay}
-            settledSum={settledSum}
+            outroDuration={outroDuration}
+            resetDelay={resetDelay}
 
-            firstUpdate={firstUpdate}
+            lastMine={lastMine}
+            settledSum={settledSum}
             lastUpdate={lastUpdate}
         />
     )
 });
 
 const StoneRight = memo(({
-    firstUpdate,
     lastUpdate,
-    settledSum,
-    destroyed
+    lastMine,
+    outroDuration,
+    resetDelay,
+    settledSum
 }) => {
 
     const initX = 120;
@@ -89,19 +96,22 @@ const StoneRight = memo(({
             floor={floor}
 
             introDelay={introDelay}
-            settledSum={settledSum}
+            outroDuration={outroDuration}
+            resetDelay={resetDelay}
 
-            firstUpdate={firstUpdate}
+            lastMine={lastMine}
+            settledSum={settledSum}
             lastUpdate={lastUpdate}
         />
     )
 });
 
 const StonePebble = memo(({
-    firstUpdate,
     lastUpdate,
-    settledSum,
-    destroyed
+    lastMine,
+    outroDuration,
+    resetDelay,
+    settledSum
 }) => {
 
     const initX = -20;
@@ -118,27 +128,30 @@ const StonePebble = memo(({
             floor={floor}
 
             introDelay={introDelay}
-            settledSum={settledSum}
+            outroDuration={outroDuration}
+            resetDelay={resetDelay}
 
-            firstUpdate={firstUpdate}
+            lastMine={lastMine}
+            settledSum={settledSum}
             lastUpdate={lastUpdate}
         />
     )
 });
 
 const StoneNode = ({
-    frameRate = 100
+    lastMine,
+    frameRate
 }) => {
 
     const [lastUpdate, setLastUpdate] = useState(moment());
-    const [destroyed, setDestroyed] = useState(false);
+
+    const outroDuration = 500;
+    const resetDelay = 1000;
 
     const totalRenders = useRef(0);
 
     const totalElements = 4;
     const settledSum = useRef(0);
-
-    const firstUpdate = useRef(moment());
 
     useEffect(() => {
 
@@ -156,37 +169,37 @@ const StoneNode = ({
 
         return () => clearTimeout(render);
 
-    }, [lastUpdate]);
-
-    useEffect(() => {
-        setLastUpdate(firstUpdate.current);
-    }, [])
+    }, [lastUpdate, settledSum.current]);
 
     return (
         <div>
             <StoneMain 
-                firstUpdate={firstUpdate.current}
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
-                destroyed={destroyed}
+                outroDuration={outroDuration}
+                resetDelay={resetDelay}
+                lastMine={lastMine}
             />
             <StoneLeft 
-                firstUpdate={firstUpdate.current}
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
-                destroyed={destroyed}
+                outroDuration={outroDuration}
+                resetDelay={resetDelay}
+                lastMine={lastMine}
             />
             <StoneRight 
-                firstUpdate={firstUpdate.current}
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
-                destroyed={destroyed}
+                outroDuration={outroDuration}
+                resetDelay={resetDelay}
+                lastMine={lastMine}
             />
             <StonePebble 
-                firstUpdate={firstUpdate.current}
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
-                destroyed={destroyed}
+                outroDuration={outroDuration}
+                resetDelay={resetDelay}
+                lastMine={lastMine}
             />
         </div>
     )

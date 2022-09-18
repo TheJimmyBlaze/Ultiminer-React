@@ -3,19 +3,24 @@ import { Button, ProgressBar } from 'react-bootstrap';
 import moment from 'moment';
 import TimeDefusedButton from '../common/TimeDefusedButton';
 
-const MiningButtons = () => {
+const MiningButtons = ({
+    mine
+}) => {
 
     const [backOffUntil, setBackOffUntil] = useState();
     const [testDisabled, setTestDisabled] = useState(false);
 
-    const pushBackOff = () => {
+    const doMine = () => {
         
-        setTestDisabled(true);
+        //Call the mine function from the form
+        mine();
 
+        //FIXME: this is just dummy code, these values will actually reflect an axios action once that's implemented
+        setTestDisabled(true);
         setTimeout(() => {
             setBackOffUntil(moment().add(3, "seconds"));
             setTestDisabled(false);
-        }, 2000);
+        }, 100);
     }
 
     return (
@@ -23,7 +28,7 @@ const MiningButtons = () => {
 
             <TimeDefusedButton variant="primary"
                 className="mine-button w-100 p-0"
-                onClick={() => pushBackOff()}
+                onClick={() => doMine()}
                 defusedAt={backOffUntil}
                 disabled={testDisabled}>
 
