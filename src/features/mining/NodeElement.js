@@ -13,10 +13,15 @@ const NodeElement = memo(({
     initY,
     floor,
 
-    //Intro/outro animation
+    //Intro animation
     introDelay,
+
+    //Outro animation
     outroDuration,
     resetDelay,
+    spinniness,
+    explosivenessX,
+    explosivenessY,
 
     //Render timings
     lastMine,
@@ -42,8 +47,8 @@ const NodeElement = memo(({
         settledSum.current = settledSum.current -= 1;
     }
 
-    const intro = useGravityBounce();
-    const outro = useSpinnyExplosion();
+    const intro = useGravityBounce(floor);
+    const outro = useSpinnyExplosion(spinniness, explosivenessX, explosivenessY);
 
     const introPlaying = () => lastUpdate.diff(introBegin) >= introDelay;
     const outroPlaying = () => lastUpdate.diff(lastMine) <= outroDuration;
@@ -91,8 +96,7 @@ const NodeElement = memo(({
                 velocityY,
                 setVelocityY,
                 y,
-                setY,
-                floor
+                setY
             });
             
             if (finished) {
@@ -102,7 +106,16 @@ const NodeElement = memo(({
 
         if(outroPlaying()) {
             outro({
-
+                firstUpdate: lastMine,
+                lastUpdate,
+                velocityX,
+                velocityY,
+                setVelocityX,
+                setVelocityY,
+                x,
+                y,
+                setX,
+                setY
             });
         }
 

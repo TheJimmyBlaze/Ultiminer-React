@@ -24,6 +24,9 @@ const StoneMain = memo(({
 
     const introDelay = 100;
 
+    const explosivenessX = 0;
+    const explosivenessY = -1;
+
     return (
         <NodeElement
             sprite={SpriteMain}
@@ -34,6 +37,9 @@ const StoneMain = memo(({
             introDelay={introDelay}
             outroDuration={outroDuration}
             resetDelay={resetDelay}
+            spinniness={0}
+            explosivenessX={explosivenessX}
+            explosivenessY={explosivenessY}
 
             lastMine={lastMine}
             settledSum={settledSum}
@@ -56,6 +62,9 @@ const StoneLeft = memo(({
 
     const introDelay = 300;
 
+    const explosivenessX = -0.5;
+    const explosivenessY = -0.5;
+
     return (
         <NodeElement
             sprite={SpriteLeft}
@@ -66,6 +75,9 @@ const StoneLeft = memo(({
             introDelay={introDelay}
             outroDuration={outroDuration}
             resetDelay={resetDelay}
+            spinniness={0}
+            explosivenessX={explosivenessX}
+            explosivenessY={explosivenessY}
 
             lastMine={lastMine}
             settledSum={settledSum}
@@ -88,6 +100,9 @@ const StoneRight = memo(({
 
     const introDelay = 400;
 
+    const explosivenessX = 0.5;
+    const explosivenessY = -0.5;
+
     return (
         <NodeElement
             sprite={SpriteRight}
@@ -98,6 +113,9 @@ const StoneRight = memo(({
             introDelay={introDelay}
             outroDuration={outroDuration}
             resetDelay={resetDelay}
+            spinniness={0}
+            explosivenessX={explosivenessX}
+            explosivenessY={explosivenessY}
 
             lastMine={lastMine}
             settledSum={settledSum}
@@ -120,6 +138,9 @@ const StonePebble = memo(({
 
     const introDelay = 500;
 
+    const explosivenessX = 0.3;
+    const explosivenessY = -0.5;
+
     return (
         <NodeElement
             sprite={SpritePebble}
@@ -130,6 +151,9 @@ const StonePebble = memo(({
             introDelay={introDelay}
             outroDuration={outroDuration}
             resetDelay={resetDelay}
+            spinniness={0}
+            explosivenessX={explosivenessX}
+            explosivenessY={explosivenessY}
 
             lastMine={lastMine}
             settledSum={settledSum}
