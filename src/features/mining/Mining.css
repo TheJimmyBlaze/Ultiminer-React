@@ -1,11 +1,6 @@
 
 .node-container {
     padding: 256px;
-}
-
-.animated-node-element {
-    transition: top 100ms, left 100ms, opacity 500ms;
-    transition-timing-function: linear;
     user-select: none;
 }
 

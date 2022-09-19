@@ -5,6 +5,7 @@ $dark-shade-percentage: 100% * (1 - $btn-disabled-opacity);
 #root {
     background-color: $dark;
     color: $text-light;
+    overflow: hidden;
 
     --primary-dark: #{ mix(black, $primary, $dark-shade-percentage) };
     --secondary-dark: #{ mix(black, $secondary, $dark-shade-percentage) };

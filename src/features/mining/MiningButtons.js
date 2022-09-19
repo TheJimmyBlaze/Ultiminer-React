@@ -18,7 +18,7 @@ const MiningButtons = ({
         //FIXME: this is just dummy code, these values will actually reflect an axios action once that's implemented
         setTestDisabled(true);
         setTimeout(() => {
-            setBackOffUntil(moment().add(3, "seconds"));
+            setBackOffUntil(moment().add(2.5, "seconds"));
             setTestDisabled(false);
         }, 100);
     }

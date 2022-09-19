@@ -24,6 +24,7 @@ const StoneMain = memo(({
 
     const introDelay = 100;
 
+    const spinniness = 0.3;
     const explosivenessX = 0;
     const explosivenessY = -1;
 
@@ -37,7 +38,7 @@ const StoneMain = memo(({
             introDelay={introDelay}
             outroDuration={outroDuration}
             resetDelay={resetDelay}
-            spinniness={0}
+            spinniness={spinniness}
             explosivenessX={explosivenessX}
             explosivenessY={explosivenessY}
 
@@ -62,6 +63,7 @@ const StoneLeft = memo(({
 
     const introDelay = 300;
 
+    const spinniness = 0.8;
     const explosivenessX = -0.5;
     const explosivenessY = -0.5;
 
@@ -75,7 +77,7 @@ const StoneLeft = memo(({
             introDelay={introDelay}
             outroDuration={outroDuration}
             resetDelay={resetDelay}
-            spinniness={0}
+            spinniness={spinniness}
             explosivenessX={explosivenessX}
             explosivenessY={explosivenessY}
 
@@ -100,6 +102,7 @@ const StoneRight = memo(({
 
     const introDelay = 400;
 
+    const spinniness = 0.8;
     const explosivenessX = 0.5;
     const explosivenessY = -0.5;
 
@@ -113,7 +116,7 @@ const StoneRight = memo(({
             introDelay={introDelay}
             outroDuration={outroDuration}
             resetDelay={resetDelay}
-            spinniness={0}
+            spinniness={spinniness}
             explosivenessX={explosivenessX}
             explosivenessY={explosivenessY}
 
@@ -138,6 +141,7 @@ const StonePebble = memo(({
 
     const introDelay = 500;
 
+    const spinniness = 1.2;
     const explosivenessX = 0.3;
     const explosivenessY = -0.5;
 
@@ -151,7 +155,7 @@ const StonePebble = memo(({
             introDelay={introDelay}
             outroDuration={outroDuration}
             resetDelay={resetDelay}
-            spinniness={0}
+            spinniness={spinniness}
             explosivenessX={explosivenessX}
             explosivenessY={explosivenessY}
 
@@ -170,9 +174,7 @@ const StoneNode = ({
     const [lastUpdate, setLastUpdate] = useState(moment());
 
     const outroDuration = 500;
-    const resetDelay = 1000;
-
-    const totalRenders = useRef(0);
+    const resetDelay = 500;
 
     const totalElements = 4;
     const settledSum = useRef(0);
@@ -182,9 +184,6 @@ const StoneNode = ({
         if (settledSum.current == totalElements) {
             return;
         }
-
-        totalRenders.current ++;
-        console.log(`Render: ${totalRenders.current}`);
 
         const preRenderTime = moment();
         const render = setTimeout(() => {

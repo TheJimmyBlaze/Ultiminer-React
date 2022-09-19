@@ -13,6 +13,13 @@ export const useSpinnyExplosion = (
     //How fast the velocity increases while falling
     const gravity = 0.003;
 
+    //How much the explosiveness varies between animations
+    const explosiveVariance = 1;
+
+    //How much the spinniness varies between animation
+    const spinnyVariance = 0.5;
+    const rotationalVelocity = useRef(0);
+
     const update = ({
         firstUpdate,
         lastUpdate,
@@ -23,7 +30,9 @@ export const useSpinnyExplosion = (
         x,
         y,
         setX,
-        setY
+        setY,
+        rotation,
+        setRotation
     }) => {
 
         //Calculate update delta in milliseconds
@@ -37,8 +46,17 @@ export const useSpinnyExplosion = (
         //Trigger explosion
         if (lastExplosion.current !== firstUpdate) {
             
-            newVelocityX = explosivenessX;
-            newVelocityY = explosivenessY;
+            //Generate variance
+            const varianceX = (Math.random() * explosiveVariance) - (explosiveVariance / 2);
+            const varianceY = (Math.random() * explosiveVariance) - (explosiveVariance / 2);
+            const varianceRotation = (Math.random() * spinnyVariance) - (spinnyVariance / 2);
+            const rotationDirection = Math.random() < 0.5 ? -1 : 1;
+
+            //Add explosive velocities
+            newVelocityX = explosivenessX + varianceX;
+            newVelocityY = explosivenessY + varianceY;
+            rotationalVelocity.current = (spinniness + varianceRotation) * rotationDirection;
+
             lastExplosion.current = firstUpdate;
         }
 
@@ -48,6 +66,9 @@ export const useSpinnyExplosion = (
         const deltaY = delta * newVelocityY;
         let newY = y + deltaY;
 
+        const deltaRotation = delta * rotationalVelocity.current;
+        let newRotation = rotation + deltaRotation;
+
         //Update state
         if (velocityX !== newVelocityX) {
             setVelocityX(newVelocityX);
@@ -56,6 +77,7 @@ export const useSpinnyExplosion = (
         setVelocityY(newVelocityY);
         setX(newX);
         setY(newY);
+        setRotation(newRotation);
     };
 
     return update;
