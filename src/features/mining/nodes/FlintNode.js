@@ -4,12 +4,12 @@ import moment from 'moment';
 
 import NodeElement from '../NodeElement'; 
 
-import SpriteMain from '../../../resources/nodes/stone/stone_main.png';
-import SpriteLeft from '../../../resources/nodes/stone/stone_left.png';
-import SpriteRight from '../../../resources/nodes/stone/stone_right.png';
-import SpritePebble from '../../../resources/nodes/stone/stone_pebble.png';
+import SpriteTop from '../../../resources/nodes/flint/flint_top.png';
+import SpriteBottom from '../../../resources/nodes/flint/flint_bottom.png';
+import SpriteBigPebble from '../../../resources/nodes/flint/flint_big_pebble.png';
+import SpriteSmallPebble from '../../../resources/nodes/flint/flint_small_pebble.png';
 
-const StoneMain = memo(({
+const FlintBottom = memo(({
     lastUpdate,
     lastMine,
     outroDuration,
@@ -18,18 +18,18 @@ const StoneMain = memo(({
 }) => {
 
     const initX = 0;
-    const initY = -300;
-    const floor = -30;
+    const initY = -200;
+    const floor = 80;
 
     const introDelay = 100;
 
-    const spinniness = 0.3;
+    const spinniness = 0;
     const explosivenessX = 0;
-    const explosivenessY = -1;
+    const explosivenessY = -0.8;
 
     return (
         <NodeElement
-            sprite={SpriteMain}
+            sprite={SpriteBottom}
             initX={initX}
             initY={initY}
             floor={floor}
@@ -48,7 +48,7 @@ const StoneMain = memo(({
     )
 });
 
-const StoneLeft = memo(({
+const FlintTop = memo(({
     lastUpdate,
     lastMine,
     outroDuration,
@@ -56,19 +56,19 @@ const StoneLeft = memo(({
     settledSum
 }) => {
 
-    const initX = -125;
-    const initY = -300;
-    const floor = 35;
+    const initX = -10;
+    const initY = -260;
+    const floor = 20;
 
     const introDelay = 300;
 
-    const spinniness = 0.8;
-    const explosivenessX = -0.5;
-    const explosivenessY = -0.5;
+    const spinniness = 0;
+    const explosivenessX = 0;
+    const explosivenessY = -1.2;
 
     return (
         <NodeElement
-            sprite={SpriteLeft}
+            sprite={SpriteTop}
             initX={initX}
             initY={initY}
             floor={floor}
@@ -87,7 +87,7 @@ const StoneLeft = memo(({
     )
 });
 
-const StoneRight = memo(({
+const FlintBigPebble = memo(({
     lastUpdate,
     lastMine,
     outroDuration,
@@ -95,19 +95,19 @@ const StoneRight = memo(({
     settledSum
 }) => {
 
-    const initX = 120;
-    const initY = -300;
-    const floor = 50;
+    const initX = -150;
+    const initY = -150;
+    const floor = 130;
 
     const introDelay = 400;
 
-    const spinniness = 0.8;
-    const explosivenessX = 0.5;
-    const explosivenessY = -0.5;
+    const spinniness = 1;
+    const explosivenessX = -0.5;
+    const explosivenessY = -0.8;
 
     return (
         <NodeElement
-            sprite={SpriteRight}
+            sprite={SpriteBigPebble}
             initX={initX}
             initY={initY}
             floor={floor}
@@ -126,7 +126,7 @@ const StoneRight = memo(({
     )
 });
 
-const StonePebble = memo(({
+const FlintSmallPebble = memo(({
     lastUpdate,
     lastMine,
     outroDuration,
@@ -134,19 +134,19 @@ const StonePebble = memo(({
     settledSum
 }) => {
 
-    const initX = -20;
+    const initX = -100;
     const initY = -300;
     const floor = 160;
 
     const introDelay = 500;
 
     const spinniness = 1.2;
-    const explosivenessX = 0.3;
+    const explosivenessX = 0.5;
     const explosivenessY = -0.5;
 
     return (
         <NodeElement
-            sprite={SpritePebble}
+            sprite={SpriteSmallPebble}
             initX={initX}
             initY={initY}
             floor={floor}
@@ -165,7 +165,7 @@ const StonePebble = memo(({
     )
 });
 
-const StoneNode = ({
+const FlintNode = ({
     lastMine
 }) => {
 
@@ -195,28 +195,28 @@ const StoneNode = ({
 
     return (
         <div>
-            <StoneMain 
+            <FlintBottom 
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
                 outroDuration={outroDuration}
                 resetDelay={resetDelay}
                 lastMine={lastMine}
             />
-            <StoneLeft 
+            <FlintTop 
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
                 outroDuration={outroDuration}
                 resetDelay={resetDelay}
                 lastMine={lastMine}
             />
-            <StoneRight 
+            <FlintBigPebble 
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
                 outroDuration={outroDuration}
                 resetDelay={resetDelay}
                 lastMine={lastMine}
             />
-            <StonePebble 
+            <FlintSmallPebble 
                 lastUpdate={lastUpdate}
                 settledSum={settledSum}
                 outroDuration={outroDuration}
@@ -227,4 +227,4 @@ const StoneNode = ({
     )
 };
 
-export default StoneNode;
+export default FlintNode;
