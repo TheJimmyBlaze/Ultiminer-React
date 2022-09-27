@@ -1,27 +1,36 @@
 import { useState } from 'react';
 import axios from 'axios';
+import moment from 'moment';
 import { useConfig } from '../config/useConfig';
 
 export const useMining = () => {
 
     const config = useConfig();
 
-    const [lastMine, setLastMine] = useState();
+    const [miningResult, setLastMine] = useState();
 
     const mine = async () => {
 
         try {
             
+            //Hit the mine api
             const route = `${config.ultiminerURL}/Mine`;
             const request = { node_id: "Node.Stone" };  //Only mining stone for now
             const response = await axios.post(route, request, { withCredentials: true });
 
-            console.log(JSON.stringify(response.data.value.new_resources));
-        }  catch (err) {
+            //Store the result in the lastMine state
+            const result = response.data.value;
+            const miningResult = {
+                newResources: result.new_resources,
+                lastMine: moment(),
+                nextMine: moment(result.next_mine)
+            };
+            setLastMine(miningResult);
 
+        }  catch (err) {
             console.error(`Mining Error: ${err}`);
         }
     };
 
-    return { lastMine, mine };
+    return { miningResult, mine };
 };

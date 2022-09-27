@@ -1,33 +1,24 @@
-import { useState } from 'react';
-
-import moment from 'moment';
-
 import MiningButtons from "./MiningButtons";
 
 import './Mining.css';
 import NodeContainer from "./NodeContainer";
-import { useMining } from './useMining';
+import { useMining } from "./useMining";
 
 const MiningForm = () => {
 
-    const { mine } = useMining();
-
-    const [lastMine, setLastMine] = useState(null);
-
-    const doMine = () => {
-
-        //This is where the API call will go
-        mine();
-
-        setLastMine(moment());
-    }
+    const {miningResult, mine} = useMining();
 
     return (
         <div>
 
-            <NodeContainer lastMine={lastMine}/>
+            <NodeContainer 
+                lastMine={miningResult?.lastMine}
+            />
 
-            <MiningButtons mine={() => doMine()}/>
+            <MiningButtons 
+                miningResult={miningResult}
+                mine={mine}
+            />
         </div>
     )
 };

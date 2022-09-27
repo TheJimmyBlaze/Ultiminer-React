@@ -39,7 +39,7 @@ const NodeElement = memo(({
     explosivenessY,
 
     //Render timings
-    lastMine,
+    lastMine = null,
     lastUpdate,
     settledSum,
 }) => {

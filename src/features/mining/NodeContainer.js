@@ -8,7 +8,7 @@ const NodeContainer = ({
     return (
         <div className="node-container">
             <div className="position-relative">
-
+            
                 <StoneNode lastMine={lastMine}/>
 
                 {/* <FlintNode lastMine={lastMine}/> */}
