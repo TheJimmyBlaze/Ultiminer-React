@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useNavigate  } from 'react-router-dom';
 import { useDiscordAuth } from '../discord/useDiscordAuth';
 import { useTokenExchange } from '../discord/useTokenExchange';
@@ -31,11 +32,20 @@ export const useAuthentication = () => {
 
         const token = getTokenCookie();
 
-        //TODO: expires cookies should also result in a logout.
-
         if (!token) {
             return logout();
         }
+
+        //Set axios auth interceptor
+        axios.interceptors.request.use(
+            config => {
+                config.headers['Authorization'] = `Bearer ${token}`;
+                return config;
+            },
+            error => {
+                return Promise.reject(error);
+            }
+        );
 
         return token;
     }

@@ -6,14 +6,18 @@ import MiningButtons from "./MiningButtons";
 
 import './Mining.css';
 import NodeContainer from "./NodeContainer";
+import { useMining } from './useMining';
 
 const MiningForm = () => {
 
+    const { mine } = useMining();
+
     const [lastMine, setLastMine] = useState(null);
 
-    const mine = () => {
+    const doMine = () => {
 
         //This is where the API call will go
+        mine();
 
         setLastMine(moment());
     }
@@ -23,7 +27,7 @@ const MiningForm = () => {
 
             <NodeContainer lastMine={lastMine}/>
 
-            <MiningButtons mine={() => mine()}/>
+            <MiningButtons mine={() => doMine()}/>
         </div>
     )
 };
