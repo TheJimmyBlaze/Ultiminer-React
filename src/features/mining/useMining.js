@@ -15,13 +15,13 @@ export const useMining = () => {
             
             //Hit the mine api
             const route = `${config.ultiminerURL}/Mine`;
-            const request = { node_id: "Node.Stone" };  //Only mining stone for now
+            const request = { node_id: "Node.Flint" };  //Only mining stone for now
             const response = await axios.post(route, request, { withCredentials: true });
 
             //Store the result in the lastMine state
             const result = response.data.value;
             const miningResult = {
-                newResources: result.new_resources,
+                newItems: result.new_resources,
                 lastMine: moment(),
                 nextMine: moment(result.next_mine)
             };

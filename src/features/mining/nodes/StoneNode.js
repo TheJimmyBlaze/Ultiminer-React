@@ -2,7 +2,7 @@ import { memo, useState, useRef, useEffect } from 'react';
 
 import moment from 'moment';
 
-import NodeElement from '../NodeElement'; 
+import NodeElement from './NodeElement'; 
 
 import SpriteMain from '../../../resources/nodes/stone/stone_main.png';
 import SpriteLeft from '../../../resources/nodes/stone/stone_left.png';
@@ -180,14 +180,14 @@ const StoneNode = ({
 
     useEffect(() => {
 
-        if (settledSum.current == totalElements) {
+        if (settledSum.current === totalElements) {
             return;
         }
 
         const preRenderTime = moment();
         const render = setTimeout(() => {
             setLastUpdate(preRenderTime);
-        }, frameRate)
+        }, frameRate);
 
         return () => clearTimeout(render);
 

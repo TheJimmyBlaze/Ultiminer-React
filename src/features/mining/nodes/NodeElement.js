@@ -2,8 +2,8 @@ import { memo, useState, useRef, useEffect } from 'react';
 
 import moment from 'moment';
 
-import { useGravityBounce } from '../animation/useGravityBounce';
-import { useSpinnyExplosion } from '../animation/useSpinnyExplosion';
+import { useGravityBounce } from '../../animation/useGravityBounce';
+import { useSpinnyExplosion } from '../../animation/useSpinnyExplosion';
 
 const smoothingDuration = 100;
 const fadeDuration = 200;

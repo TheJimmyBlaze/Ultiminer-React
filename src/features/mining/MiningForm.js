@@ -1,8 +1,8 @@
 import MiningButtons from "./MiningButtons";
-
-import './Mining.css';
 import NodeContainer from "./NodeContainer";
 import { useMining } from "./useMining";
+
+import './Mining.css';
 
 const MiningForm = () => {
 
@@ -12,7 +12,7 @@ const MiningForm = () => {
         <div>
 
             <NodeContainer 
-                lastMine={miningResult?.lastMine}
+                miningResult={miningResult}
             />
 
             <MiningButtons 

@@ -2,7 +2,7 @@ import { memo, useState, useRef, useEffect } from 'react';
 
 import moment from 'moment';
 
-import NodeElement from '../NodeElement'; 
+import NodeElement from './NodeElement'; 
 
 import SpriteTop from '../../../resources/nodes/flint/flint_top.png';
 import SpriteBottom from '../../../resources/nodes/flint/flint_bottom.png';
@@ -180,14 +180,14 @@ const FlintNode = ({
 
     useEffect(() => {
 
-        if (settledSum.current == totalElements) {
+        if (settledSum.current === totalElements) {
             return;
         }
 
         const preRenderTime = moment();
         const render = setTimeout(() => {
             setLastUpdate(preRenderTime);
-        }, frameRate)
+        }, frameRate);
 
         return () => clearTimeout(render);
 
