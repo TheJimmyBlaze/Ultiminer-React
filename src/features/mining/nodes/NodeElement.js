@@ -52,7 +52,7 @@ const NodeElement = memo(({
     
     const [rotation, setRotation] = useState(0);
 
-    const [introBegin, setIntroBegin] = useState(moment());
+    const [introBegin, setIntroBegin] = useState(lastMine);
 
     //Elements are considered to be 'settled' after the intro is finished playing, but before the outro begins playing
     const settled = useRef(false);

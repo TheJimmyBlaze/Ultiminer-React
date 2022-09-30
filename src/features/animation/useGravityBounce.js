@@ -47,7 +47,7 @@ export const useGravityBounce = (
         setVelocityY(newVelocity);
         setY(newY);
 
-        return newVelocity == 0;
+        return newVelocity === 0;
     };
 
     return update;

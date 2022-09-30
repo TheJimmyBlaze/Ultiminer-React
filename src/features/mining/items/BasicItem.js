@@ -16,7 +16,7 @@ const BasicItem = memo(({
     
     const spinniness = 0;
     const explosivenessX = 0;
-    const explosivenessY = -1.5;
+    const explosivenessY = -1.25;
 
     useEffect(() => {
 
