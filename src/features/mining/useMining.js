@@ -21,7 +21,7 @@ export const useMining = () => {
             //Store the result in the lastMine state
             const result = response.data.value;
             const miningResult = {
-                newItems: result.new_resources,
+                newItems: result.resources.new_resources,
                 lastMine: moment(),
                 nextMine: moment(result.next_mine)
             };
