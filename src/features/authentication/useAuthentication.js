@@ -37,6 +37,7 @@ export const useAuthentication = () => {
         }
 
         //Set axios auth interceptor
+        //TODO: define an axios context specially for Ultiminer API, set the interceptor only for Ultiminer
         axios.interceptors.request.use(
             config => {
                 config.headers['Authorization'] = `Bearer ${token}`;
