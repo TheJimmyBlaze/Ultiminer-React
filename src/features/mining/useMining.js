@@ -19,6 +19,7 @@ export const useMining = () => {
             const result = response.data.value;
             const miningResult = {
                 newItems: result.resources.new_resources,
+                exp: result.exp,
                 lastMine: moment(),
                 nextMine: moment(result.next_mine)
             };

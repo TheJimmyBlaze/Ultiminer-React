@@ -24,7 +24,7 @@ $dark-shade-percentage: 100% * (1 - $btn-disabled-opacity);
 }
 
 .progress {
-    background-color: $gray-900;
+    background-color: color.scale($dark, $lightness: -25%);
 }
 
 .text-inset {

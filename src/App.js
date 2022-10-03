@@ -6,7 +6,7 @@ import Authentication from './features/authentication/Authentication';
 const App = () => {
 
     return (
-        <div className="d-flex flex-column justify-content-center align-items-center min-vh-100">
+        <div className="d-flex justify-content-center min-vh-100">
 
             <Router>
                 <Routes>

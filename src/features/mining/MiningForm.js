@@ -3,21 +3,29 @@ import NodeContainer from "./NodeContainer";
 import { useMining } from "./useMining";
 
 import './Mining.css';
+import ExpBar from "../experience/ExpBar";
 
 const MiningForm = () => {
 
     const {miningResult, mine} = useMining();
 
     return (
-        <div>
+        <div className="d-flex flex-column">
 
-            <NodeContainer 
-                miningResult={miningResult}
-            />
+            <div className="d-flex flex-column my-auto">
 
-            <MiningButtons 
+                <NodeContainer 
+                    miningResult={miningResult}
+                />
+
+                <MiningButtons 
+                    miningResult={miningResult}
+                    mine={mine}
+                />
+            </div>
+
+            <ExpBar 
                 miningResult={miningResult}
-                mine={mine}
             />
         </div>
     )

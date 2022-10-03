@@ -8,7 +8,7 @@ const Home = () => {
 
     const [token, setToken] = useState(null);
 
-    const { validateToken, logout } = useAuthentication();
+    const { validateToken } = useAuthentication();
 
     useEffect(() => {
         
@@ -16,20 +16,15 @@ const Home = () => {
         setToken(token);
     }, []);
 
-    const handleLogout = () => logout();
-
     return (
         <>
             {
                 token ? 
-                    <div className="d-flex flex-column justify-content-center align-items-center w-100">
-                        <MiningForm />
-                        <Button variant="danger"
-                            onClick={() => handleLogout()}>
-                            Logout
-                        </Button>                        
-                    </div> :
-                    <Spinner />
+                <div className="d-flex justify-content-center w-100">
+                    <MiningForm />                
+                </div> 
+                :
+                <Spinner />
             }
         </>
     )
