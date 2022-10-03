@@ -1,11 +1,8 @@
 import { useState } from 'react';
-import axios from 'axios';
+import axios from '../config/axiosUltiminer';
 import moment from 'moment';
-import { useConfig } from '../config/useConfig';
 
 export const useMining = () => {
-
-    const config = useConfig();
 
     const [miningResult, setLastMine] = useState();
 
@@ -14,7 +11,7 @@ export const useMining = () => {
         try {
             
             //Hit the mine api
-            const route = `${config.ultiminerURL}/Mine`;
+            const route = "/Mine";
             const request = { node_id: "Node.Flint" };  //Only mining stone for now
             const response = await axios.post(route, request, { withCredentials: true });
 

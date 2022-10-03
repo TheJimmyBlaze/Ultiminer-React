@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../config/axiosUltiminer';
 import { useNavigate  } from 'react-router-dom';
 import { useDiscordAuth } from '../discord/useDiscordAuth';
 import { useTokenExchange } from '../discord/useTokenExchange';
@@ -37,7 +37,6 @@ export const useAuthentication = () => {
         }
 
         //Set axios auth interceptor
-        //TODO: define an axios context specially for Ultiminer API, set the interceptor only for Ultiminer
         axios.interceptors.request.use(
             config => {
                 config.headers['Authorization'] = `Bearer ${token}`;

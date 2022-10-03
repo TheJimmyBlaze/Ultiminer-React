@@ -1,9 +1,6 @@
-import axios from 'axios';
-import { useConfig } from '../config/useConfig';
+import axios from '../config/axiosUltiminer';
 
 export const useTokenExchange = () => {
-
-    const config = useConfig();
 
     const exchangeAuthCode = async authCode => {
 
@@ -12,7 +9,7 @@ export const useTokenExchange = () => {
 
         try {
 
-            const route = `${config.ultiminerURL}/DiscordAuthCode`;
+            const route = "/DiscordAuthCode";
             const request = { auth_code: authCode };
             const response = await axios.post(route, request);
 
