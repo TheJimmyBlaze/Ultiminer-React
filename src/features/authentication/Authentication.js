@@ -24,13 +24,13 @@ const Authentication = () => {
     }, []);
 
     return (
-        <>
+        <div className="my-auto">
             {
                 working ?
                     <Spinner /> :
                     <AuthenticationFailed />
             }
-        </>
+        </div>
     )
 };
 
