@@ -1,8 +1,11 @@
 
 import axios from 'axios';
+import applyCaseMiddleware from 'axios-case-converter';
 import { useConfig } from './useConfig';
 
 const config = useConfig();
-axios.defaults.baseURL = config.ultiminerURL;
 
-export default axios;
+const ultiminer = applyCaseMiddleware(axios.create())
+ultiminer.defaults.baseURL = config.ultiminerURL;
+
+export default ultiminer;

@@ -1,4 +1,4 @@
-import axios from '../config/axiosUltiminer';
+import ultiminer from '../config/axiosUltiminer';
 import { useNavigate  } from 'react-router-dom';
 import { useDiscordAuth } from '../discord/useDiscordAuth';
 import { useTokenExchange } from '../discord/useTokenExchange';
@@ -20,7 +20,7 @@ export const useAuthentication = () => {
         const token = response.token;
         if (token) {
 
-            setTokenCookie(token.access_token, token.expires_in);
+            setTokenCookie(token.accessToken, token.expiresIn);
             return navigate('/');
         }
 
@@ -37,7 +37,7 @@ export const useAuthentication = () => {
         }
 
         //Set axios auth interceptor
-        axios.interceptors.request.use(
+        ultiminer.interceptors.request.use(
             config => {
                 config.headers['Authorization'] = `Bearer ${token}`;
                 return config;

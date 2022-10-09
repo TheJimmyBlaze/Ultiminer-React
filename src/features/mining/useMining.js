@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from '../config/axiosUltiminer';
+import ultiminer from '../config/axiosUltiminer';
 import moment from 'moment';
 
 export const useMining = ({
@@ -15,8 +15,8 @@ export const useMining = ({
             
             //Hit the mine api
             const route = "/Mine";
-            const request = { node_id: "Node.Flint" };  //Only mining stone for now
-            const response = await axios.post(route, request);
+            const request = { nodeId: "Node.Flint" };  //Only mining stone for now
+            const response = await ultiminer.post(route, request);
 
 
             //Store the result in the lastMine state
@@ -30,10 +30,10 @@ export const useMining = ({
 
             //Set result
             const miningResult = {
-                newItems: result.resources.new_resources,
-                newExp: result.exp.new_experience,
+                newItems: result.resources.newResources,
+                newExp: result.exp.newExperience,
                 lastMine: moment(),
-                nextMine: moment(result.next_mine)
+                nextMine: moment(result.nextMine)
             };
             setLastMine(miningResult);
 

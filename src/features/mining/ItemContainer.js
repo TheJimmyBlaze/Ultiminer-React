@@ -20,7 +20,7 @@ const ItemContainer = memo(({
         miningResult?.newItems?.map(item => {
 
             //Solve sprite
-            const sprite = getSprite(item.resource_id);        
+            const sprite = getSprite(item.resourceId);        
 
             for(let i = 0; i < item.count; i++) {
 

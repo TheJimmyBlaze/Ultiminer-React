@@ -1,4 +1,4 @@
-import axios from '../config/axiosUltiminer';
+import ultiminer from '../config/axiosUltiminer';
 import { useState } from 'react';
 
 export const useExperience = () => {
@@ -13,7 +13,7 @@ export const useExperience = () => {
             try {
                 
                 const route = "/Experience";
-                const response = await axios.get(route);
+                const response = await ultiminer.get(route);
         
                 //Store the result in the state
                 const result = response.data.value

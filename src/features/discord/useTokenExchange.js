@@ -1,4 +1,4 @@
-import axios from '../config/axiosUltiminer';
+import ultiminer from '../config/axiosUltiminer';
 
 export const useTokenExchange = () => {
 
@@ -10,8 +10,8 @@ export const useTokenExchange = () => {
         try {
 
             const route = "/DiscordAuthCode";
-            const request = { auth_code: authCode };
-            const response = await axios.post(route, request);
+            const request = { authCode: authCode };
+            const response = await ultiminer.post(route, request);
 
             token = response.data.value;
 
