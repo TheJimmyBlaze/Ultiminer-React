@@ -109,3 +109,4 @@ dist
 
 # Compiled SCSS
 src/scss/*.css
+src/scss/*.css.map
