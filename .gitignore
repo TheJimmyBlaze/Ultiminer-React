@@ -108,4 +108,4 @@ dist
 *.key
 
 # Compiled SCSS
-./src/scss/*.css
+src/scss/*.css
