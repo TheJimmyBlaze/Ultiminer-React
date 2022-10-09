@@ -1,26 +1,35 @@
-import { useState, useEffect } from 'react';
-import Spinner from '../common/Spinner';
+import { useEffect } from 'react';
 import { useAuthentication } from '../authentication/useAuthentication';
-import { Button } from 'react-bootstrap';
+import { useExperience } from '../experience/useExperience';
+import { useMining } from "../mining/useMining";
 import MiningForm from '../mining/MiningForm';
 
 const Home = () => {
 
-    const [token, setToken] = useState(null);
-
     const { validateToken } = useAuthentication();
 
+    const { experience, getExperience, setExperience } = useExperience();
+
+    const { miningResult, mine } = useMining({ 
+        setExperience 
+    });
+
+    //Initializes game state
     useEffect(() => {
         
-        const token = validateToken();
-        setToken(token);
+        validateToken();
+        getExperience();
+
     }, []);
 
     return (
         <>
             {
                 <div className="d-flex justify-content-center w-100">
-                    <MiningForm />                
+                    <MiningForm experience={experience}
+                        miningResult={miningResult}
+                        mine={mine}
+                    />                
                 </div> 
             }
         </>
