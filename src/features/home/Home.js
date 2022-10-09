@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useAuthentication } from '../authentication/useAuthentication';
 import { useExperience } from '../experience/useExperience';
+import { useInventory } from '../inventory/useInventory';
 import { useMining } from "../mining/useMining";
+
 import MiningForm from '../mining/MiningForm';
 
 const Home = () => {
@@ -9,9 +11,11 @@ const Home = () => {
     const { validateToken } = useAuthentication();
 
     const { experience, getExperience, setExperience } = useExperience();
+    const { inventory, getInventory, setInventory } = useInventory();
 
     const { miningResult, mine } = useMining({ 
-        setExperience 
+        setExperience,
+        setInventory
     });
 
     //Initializes game state
@@ -19,6 +23,7 @@ const Home = () => {
         
         validateToken();
         getExperience();
+        getInventory();
 
     }, []);
 

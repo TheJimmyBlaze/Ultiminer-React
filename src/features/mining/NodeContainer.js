@@ -1,6 +1,6 @@
-import ItemContainer from "./ItemContainer";
-import FlintNode from "./nodes/FlintNode";
-import StoneNode from "./nodes/StoneNode";
+import ItemContainer from './ItemContainer';
+import FlintNode from './nodes/FlintNode';
+import StoneNode from './nodes/StoneNode';
 
 const NodeContainer = ({
     miningResult

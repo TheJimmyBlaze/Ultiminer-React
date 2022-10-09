@@ -1,8 +1,8 @@
 import { memo, useState, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import BasicItem from "./items/BasicItem";
-import { useItemSpriteSolver } from './items/useItemSpriteSolver';
+import BasicItem from './items/BasicItem';
+import { useItemSpriteSolver } from '../inventory/useItemSpriteSolver';
 
 const ItemContainer = memo(({
     miningResult

@@ -3,8 +3,8 @@ import ultiminer from '../config/axiosUltiminer';
 import moment from 'moment';
 
 export const useMining = ({
-    setInventory,
-    setExperience
+    setExperience,
+    setInventory
 }) => {
 
     const [miningResult, setLastMine] = useState();
@@ -14,8 +14,8 @@ export const useMining = ({
         try {
             
             //Hit the mine api
-            const route = "/Mine";
-            const request = { nodeId: "Node.Flint" };  //Only mining stone for now
+            const route = '/Mine';
+            const request = { nodeId: 'Node.Flint' };  //Only mining stone for now
             const response = await ultiminer.post(route, request);
 
 
@@ -26,7 +26,7 @@ export const useMining = ({
             setExperience(result.exp);
 
             //Update inventory
-            //TODO: actually implement inventory this way
+            setInventory(result.resources);
 
             //Set result
             const miningResult = {

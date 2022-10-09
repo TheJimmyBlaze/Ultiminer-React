@@ -1,11 +1,10 @@
-import MiningButtons from "./MiningButtons";
-import NodeContainer from "./NodeContainer";
+import MiningButtons from './MiningButtons';
+import NodeContainer from './NodeContainer';
 
 import './Mining.css';
-import ExperienceBar from "../experience/ExperienceBar";
+import ExperienceBar from '../experience/ExperienceBar';
 
 const MiningForm = ({
-    inventory,
     experience,
     miningResult,
     mine

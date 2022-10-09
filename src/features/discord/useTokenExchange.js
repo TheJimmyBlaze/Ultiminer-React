@@ -9,7 +9,7 @@ export const useTokenExchange = () => {
 
         try {
 
-            const route = "/DiscordAuthCode";
+            const route = '/DiscordAuthCode';
             const request = { authCode: authCode };
             const response = await ultiminer.post(route, request);
 

@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 
 export const useTokenCookie = () => {
 
-    const bearerTokenName = "ULTIMINER_BEARER_TOKEN";
+    const bearerTokenName = 'ULTIMINER_BEARER_TOKEN';
 
     const cookies = new Cookies();
 
