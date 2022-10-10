@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './features/home/Home';
 import Login from './features/login/Login';
 import Authentication from './features/authentication/Authentication';
+import MiningForm from './features/mining/MiningForm';
 
 const App = () => {
 
@@ -10,9 +11,12 @@ const App = () => {
 
             <Router>
                 <Routes>
-                    <Route path="/" element={ <Home /> }/>
-                    <Route path="/login" element={ <Login /> } />
-                    <Route path="/auth" element={ <Authentication /> } />
+                    <Route path="/" element={<Home />}>
+                        <Route index element={<MiningForm />} />
+                        <Route path="inventory" element={<h1>Inventory</h1>} />
+                    </Route>
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/auth" element={<Authentication />} />
                 </Routes>
             </Router>
 

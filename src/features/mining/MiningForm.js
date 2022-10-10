@@ -1,14 +1,14 @@
+import { useOutletContext } from "react-router-dom";
+
 import MiningButtons from './MiningButtons';
 import NodeContainer from './NodeContainer';
 
 import './Mining.css';
 import ExperienceBar from '../experience/ExperienceBar';
 
-const MiningForm = ({
-    experience,
-    miningResult,
-    mine
-}) => {
+const MiningForm = () => {
+
+    const [experience, miningResult, mine] = useOutletContext();
 
     return (
         <div className="d-flex flex-column">

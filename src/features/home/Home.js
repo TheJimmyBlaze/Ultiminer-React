@@ -1,10 +1,10 @@
+
+import { Outlet } from "react-router-dom";
 import { useEffect } from 'react';
 import { useAuthentication } from '../authentication/useAuthentication';
 import { useExperience } from '../experience/useExperience';
 import { useInventory } from '../inventory/useInventory';
 import { useMining } from "../mining/useMining";
-
-import MiningForm from '../mining/MiningForm';
 
 const Home = () => {
 
@@ -28,16 +28,14 @@ const Home = () => {
     }, []);
 
     return (
-        <>
-            {
-                <div className="d-flex justify-content-center w-100">
-                    <MiningForm experience={experience}
-                        miningResult={miningResult}
-                        mine={mine}
-                    />                
-                </div> 
-            }
-        </>
+
+        <div className="d-flex justify-content-center w-100">
+            <Outlet context={[
+                experience,
+                miningResult,
+                mine
+            ]}/>            
+        </div>
     )
 };
 
