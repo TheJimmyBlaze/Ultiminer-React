@@ -3,6 +3,7 @@ import Home from './features/home/Home';
 import Login from './features/login/Login';
 import Authentication from './features/authentication/Authentication';
 import MiningForm from './features/mining/MiningForm';
+import InventoryForm from './features/inventory/InventoryForm';
 
 const App = () => {
 
@@ -13,7 +14,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home />}>
                         <Route index element={<MiningForm />} />
-                        <Route path="inventory" element={<h1>Inventory</h1>} />
+                        <Route path="inventory" element={<InventoryForm />} />
                     </Route>
                     <Route path="/login" element={<Login />} />
                     <Route path="/auth" element={<Authentication />} />
