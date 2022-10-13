@@ -7,12 +7,14 @@ $dark-shade-percentage: 100% * (1 - $btn-disabled-opacity);
     color: $text-light;
     overflow: hidden;
 
-    --primary-dark: #{ mix(black, $primary, $dark-shade-percentage) };
-    --secondary-dark: #{ mix(black, $secondary, $dark-shade-percentage) };
-    --success-dark: #{ mix(black, $success, $dark-shade-percentage) };
-    --danger-dark: #{ mix(black, $danger, $dark-shade-percentage) };
-    --warning-dark: #{ mix(black, $warning, $dark-shade-percentage) };
-    --info-dark: #{ mix(black, $info, $dark-shade-percentage) };
+    --um-very-dark: $very-dark; 
+
+    --um-primary-dark: #{ mix(black, $primary, $dark-shade-percentage) };
+    --um-secondary-dark: #{ mix(black, $secondary, $dark-shade-percentage) };
+    --um-success-dark: #{ mix(black, $success, $dark-shade-percentage) };
+    --um-danger-dark: #{ mix(black, $danger, $dark-shade-percentage) };
+    --um-warning-dark: #{ mix(black, $warning, $dark-shade-percentage) };
+    --um-info-dark: #{ mix(black, $info, $dark-shade-percentage) };
 }
 
 .card-header {
@@ -24,11 +26,11 @@ $dark-shade-percentage: 100% * (1 - $btn-disabled-opacity);
 }
 
 .progress {
-    background-color: color.scale($dark, $lightness: -25%);
+    background-color: $very-dark;
 }
 
 .text-inset {
-    color: color.scale($dark, $lightness: -25%);
+    color: $very-dark;
 }
 
 .fs-7 {
