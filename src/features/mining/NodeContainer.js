@@ -7,7 +7,7 @@ const NodeContainer = ({
 }) => {
 
     return (
-        <div className="node-container">
+        <div className="mine-node-container">
             <div className="position-relative">
             
                 {/* <StoneNode lastMine={miningResult?.lastMine}/> */}

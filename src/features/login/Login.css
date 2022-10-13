@@ -1,31 +1,31 @@
 
-.bg-lava-cave-tiny {
+.login-background-tiny {
   background-image: url("../../resources/LavaCaveTiny.jpg");
   background-position: center;
   background-size: cover;
 }
 
-.bg-lava-cave-small {
+.login-background-small {
   background-image: url("../../resources/LavaCaveSmall.jpg");
   background-position: center;
   background-size: cover;
 }
 
-.bg-lava-cave {
+.login-background {
   background-image: url("../../resources/LavaCave.jpg");
   background-position: center;
   background-size: cover;
 }
 
-.vignette {
+.login-vignette {
   box-shadow: 0 0 256px black inset;
 }
 
-.shadow-dark {
+.login-shadow-dark {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.75) !important;
 }
 
-.logo {
+.login-logo {
   max-width: 48px;
   max-height: 48px;
 }

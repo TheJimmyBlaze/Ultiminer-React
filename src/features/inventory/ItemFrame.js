@@ -6,11 +6,11 @@ const ItemFrame = memo(({
 }) => {
 
     return (
-        <div className="d-flex m-1 p-1 frame-background">
+        <div className="d-flex m-1 p-1 inv-frame-background">
 
             <div className="position-relative">
 
-                <img className="item-sprite" src={sprite} />
+                <img className="inv-item-sprite" src={sprite} />
                 <div className="position-absolute bottom-0 end-0">
                     {quantity}
                 </div>

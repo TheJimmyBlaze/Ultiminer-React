@@ -5,7 +5,7 @@ const NavHeader = () => {
     return (
         <div className="d-flex align-items-center p-2">
 
-            <img src={MineTrolley} className="logo me-4"/>
+            <img src={MineTrolley} className="nav-logo me-4"/>
 
             <h3 className="m-0 justify-self-center">
                 Ultiminer

@@ -4,7 +4,7 @@ import DiscordLoginButton from './DiscordLoginButton';
 const LoginForm = () => {
 
     return (
-        <Card className="m-4 mx-lg-0 position-relative shadow-dark border-0">
+        <Card className="m-4 mx-lg-0 position-relative login-shadow-dark border-0">
             <Card.Header>
                 <h5>Ultiminer</h5>
             </Card.Header>
