@@ -6,7 +6,9 @@ import { useExperience } from '../experience/useExperience';
 import { useInventory } from '../inventory/useInventory';
 import { useMining } from '../mining/useMining';
 import NavigationForm from '../navigation/NavForm';
-import ActionLog from '../actionLog/ActionLog';
+import InsightForm from '../insight/InsightForm';
+
+import './Home.css';
 
 const Home = () => {
 
@@ -35,7 +37,7 @@ const Home = () => {
 
             <NavigationForm />
             
-            <div className="d-flex justify-content-center w-100">
+            <div className="d-flex justify-content-center w-100 home-panel">
                 <Outlet context={{
                     experience,
                     inventory,
@@ -44,7 +46,7 @@ const Home = () => {
                 }}/>            
             </div>
 
-            <ActionLog />
+            <InsightForm />
         </div>
     )
 };

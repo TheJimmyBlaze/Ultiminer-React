@@ -1,18 +1,18 @@
 
 .login-background-tiny {
-  background-image: url("../../resources/LavaCaveTiny.jpg");
+  background-image: url("../../resources/Lava_Cave_Tiny.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .login-background-small {
-  background-image: url("../../resources/LavaCaveSmall.jpg");
+  background-image: url("../../resources/Lava_Cave_Small.jpg");
   background-position: center;
   background-size: cover;
 }
 
 .login-background {
-  background-image: url("../../resources/LavaCave.jpg");
+  background-image: url("../../resources/Lava_Cave.jpg");
   background-position: center;
   background-size: cover;
 }

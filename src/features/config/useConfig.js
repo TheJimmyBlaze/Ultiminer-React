@@ -1,5 +1,9 @@
 
+import version from '../../resources/version.json';
+
 export const useConfig = () => {
+
+    const appVersion = version.app_version;
 
     const ultiminerURL = process.env.REACT_APP_ULTIMINER_API_URL;
     
@@ -8,6 +12,9 @@ export const useConfig = () => {
     const discordRedirectURL = process.env.REACT_APP_DISCORD_REDIRECT_URL;
 
     return {
+
+        appVersion,
+
         ultiminerURL,
 
         discordURL,

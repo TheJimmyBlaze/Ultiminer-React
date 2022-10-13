@@ -7,7 +7,7 @@ $dark-shade-percentage: 100% * (1 - $btn-disabled-opacity);
     color: $text-light;
     overflow: hidden;
 
-    --um-very-dark: $very-dark; 
+    --um-very-dark: #{ $very-dark }; 
 
     --um-primary-dark: #{ mix(black, $primary, $dark-shade-percentage) };
     --um-secondary-dark: #{ mix(black, $secondary, $dark-shade-percentage) };

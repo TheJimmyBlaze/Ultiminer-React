@@ -6,7 +6,10 @@ const LoginFooter = () => {
                 <p>
                     <i className="fa-brands fa-github" />
 
-                    <a href="https://github.com/TheJimmyBlaze/Ultiminer-React" className="text-muted">
+                    <a href="https://github.com/TheJimmyBlaze/Ultiminer-React" 
+                        target="_blank"
+                        className="text-muted"
+                    >
                         github.com/TheJimmyBlaze
                     </a>
                 </p>

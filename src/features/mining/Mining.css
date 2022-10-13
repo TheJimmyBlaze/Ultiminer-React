@@ -5,11 +5,11 @@
 }
 
 .mine-other-button {
-    max-width: 6rem;
+    max-width: 8rem;
 }
 
 .mine-button {
-    max-width: 10rem;
+    max-width: 12rem;
 }
 
 .mine-button.btn:disabled {

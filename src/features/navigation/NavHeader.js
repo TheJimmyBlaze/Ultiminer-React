@@ -1,11 +1,11 @@
-import MineTrolley from '../../resources/MineTrolley.png';
+import Logo from '../../resources/Ultiminer_Logo_Icon.png';
 
 const NavHeader = () => {
 
     return (
-        <div className="d-flex align-items-center p-2">
+        <div className="d-flex align-items-center p-2 nav-header">
 
-            <img src={MineTrolley} className="nav-logo me-4"/>
+            <img src={Logo} className="nav-logo me-4"/>
 
             <h3 className="m-0 justify-self-center">
                 Ultiminer

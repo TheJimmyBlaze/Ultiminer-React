@@ -39,12 +39,8 @@ const MiningButtons = ({
 
             <div className="d-flex w-100 justify-content-end">
                 <Button variant="secondary"
-                    className="mine-other-button w-100 mx-2">
-                    <i className="fa-solid fa-cubes-stacked" /> Loot
-                </Button>
-                <Button variant="secondary"
                     className="mine-other-button w-100">
-                    <i className="fa-solid fa-tag" /> Shop
+                    <i className="fa-solid fa-dragon" /> Boost
                 </Button>
             </div>
         </div>
