@@ -10,9 +10,9 @@ const NodeContainer = ({
         <div className="mine-node-container">
             <div className="position-relative">
             
-                {/* <StoneNode lastMine={miningResult?.lastMine}/> */}
+                <StoneNode lastMine={miningResult?.lastMine}/>
 
-                <FlintNode lastMine={miningResult?.lastMine}/>
+                {/* <FlintNode lastMine={miningResult?.lastMine}/> */}
             </div>
 
             <ItemContainer miningResult={miningResult} />

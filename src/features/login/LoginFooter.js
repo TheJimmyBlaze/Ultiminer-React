@@ -2,9 +2,9 @@
 const LoginFooter = () => {
 
     return (
-        <div className="p-3 text-muted fs-7 d-flex justify-content-center">
-                <p>
-                    <i className="fa-brands fa-github" />
+        <div className="p-4 text-muted fs-7 d-flex justify-content-center">
+                <p className="m-0">
+                    <i className="fa-brands fa-github me-1" />
 
                     <a href="https://github.com/TheJimmyBlaze/Ultiminer-React" 
                         target="_blank"
