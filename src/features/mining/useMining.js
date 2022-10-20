@@ -3,11 +3,29 @@ import ultiminer from '../config/axiosUltiminer';
 import moment from 'moment';
 
 export const useMining = ({
+    addLog,
     setExperience,
     setInventory
 }) => {
 
     const [miningResult, setLastMine] = useState();
+
+    const generateLog = miningResult => {
+
+        const newLog = {
+            action: "Mine",
+            message: (
+                <ul>
+                    <li>5 Stone</li>
+                    <li>1 Wooden Tool Rod</li>
+                    <li>1 Linen Binding</li>
+                    <li>128 Experience</li>
+                </ul>
+            )
+        }
+
+        addLog(newLog);
+    };
 
     const mine = async () => {
 
@@ -36,6 +54,9 @@ export const useMining = ({
                 nextMine: moment(result.nextMine)
             };
             setLastMine(miningResult);
+            
+            //Add log
+            generateLog(miningResult);
 
         }  catch (err) {
             console.error(`Mining Error: ${err}`);

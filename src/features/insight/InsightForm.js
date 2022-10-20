@@ -2,14 +2,18 @@
 import InsightButtons from './InsightButtons';
 
 import './Insight.css';
+import ActivityLog from '../activity_log/ActivityLog';
 
-const InsightForm = () => {
+const InsightForm = ({
+    log,
+}) => {
 
     return (
-        <div className="d-flex flex-column text-muted min-vh-100 insight-panel">
+        <div className="d-flex flex-column text-muted min-vh-100 vh-100 insight-panel">
 
-            <div className="mt-auto p-2">
+            <ActivityLog log={log}/>
 
+            <div className="mt-auto">
                 <InsightButtons />
             </div>
         </div>

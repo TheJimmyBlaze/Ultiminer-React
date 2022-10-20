@@ -9,15 +9,18 @@ import NavigationForm from '../navigation/NavForm';
 import InsightForm from '../insight/InsightForm';
 
 import './Home.css';
+import { useActivityLog } from '../activity_log/useActivityLog';
 
 const Home = () => {
 
     const { validateToken } = useAuthentication();
 
+    const { log, addLog } = useActivityLog();
     const { experience, getExperience, setExperience } = useExperience();
     const { inventory, getInventory, setInventory } = useInventory();
 
     const { miningResult, mine } = useMining({ 
+        addLog,
         setExperience,
         setInventory
     });
@@ -46,7 +49,7 @@ const Home = () => {
                 }}/>            
             </div>
 
-            <InsightForm />
+            <InsightForm log={log}/>
         </div>
     )
 };
