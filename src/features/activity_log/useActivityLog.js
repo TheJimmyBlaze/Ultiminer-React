@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import moment from 'moment';
+import { v4 as uuid } from 'uuid';
 
 export const useActivityLog = () => {
 
@@ -13,6 +14,7 @@ export const useActivityLog = () => {
     }) => {
 
         const newLog = {
+            id: uuid(),
             date: moment(),
             action,
             message

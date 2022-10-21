@@ -23,9 +23,9 @@ const ActivityLog = ({
 
             <div className="mt-auto" />
             {
-                log.map((entry, index) => (
+                log.map(entry => (
                     <LogMessage
-                        key={index}
+                        key={entry.id}
                         date={entry.date}
                         action={entry.action}
                         message={entry.message}
