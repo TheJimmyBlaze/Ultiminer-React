@@ -25,7 +25,6 @@ const DiscordHeader = () => {
         const userId = token.nameid;
         const avatarId = token["ultiminer.discord.avatar"];
         setAvatarURL(`${discordCDN}/avatars/${userId}/${avatarId}`);
-        console.log(avatarURL);
     }, []);
 
     return (

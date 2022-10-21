@@ -3,6 +3,8 @@ import moment from 'moment';
 
 export const useActivityLog = () => {
 
+    const maxLogs = 25;
+
     const [log, setLog] = useState([]);
 
     const addLog = ({
@@ -16,7 +18,7 @@ export const useActivityLog = () => {
             message
         };
 
-        setLog([...log, newLog]);
+        setLog([...log.slice(Math.max(log.length - maxLogs + 1, 0)), newLog]);
     };
 
     return { log, addLog };
