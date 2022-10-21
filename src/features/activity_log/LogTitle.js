@@ -6,7 +6,7 @@ const LogTitle = ({
     action
 }) => {
 
-    const fadeDelay = 100;
+    const fadeDelay = 500;
 
     const [faded, setFaded] = useState(false);
 

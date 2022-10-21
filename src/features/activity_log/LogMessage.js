@@ -7,15 +7,12 @@ const LogMessage = ({
 }) => {
 
     return (
-        <div className="d-flex flex-column w-100">
+        <div className="d-flex flex-column w-100 my-1">
             <LogTitle 
                 date={date}
                 action={action}
             />
-
-            <div className="fs-7">
-                {message}
-            </div>
+            {message}
         </div>
     )
 };

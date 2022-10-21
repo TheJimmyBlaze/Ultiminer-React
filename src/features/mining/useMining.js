@@ -16,10 +16,12 @@ export const useMining = ({
             action: "Mine",
             message: (
                 <ul>
-                    <li>5 Stone</li>
-                    <li>1 Wooden Tool Rod</li>
-                    <li>1 Linen Binding</li>
-                    <li>128 Experience</li>
+                    {miningResult.newItems.map(item => (
+                        <li key={item.resourceId}>
+                            {item.count} {item.resourceId}
+                        </li>
+                    ))}
+                    <li>{miningResult.newExp} Experience</li>
                 </ul>
             )
         }
