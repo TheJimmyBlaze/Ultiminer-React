@@ -18,7 +18,7 @@ export const useMining = ({
                 <ul>
                     {miningResult.newItems.map(item => (
                         <li key={item.resourceId}>
-                            {item.count} {item.resourceId}
+                            {item.count} {item.displayName}
                         </li>
                     ))}
                     <li>{miningResult.newExp} Experience</li>
