@@ -5,7 +5,7 @@ import LogoutButton from './LogoutButton';
 const InsightButtons = () => {
 
     return (
-        <div className="d-flex">
+        <div className="d-flex p-2">
 
             <div className="me-2">
                 <SettingsButton /> 

@@ -7,7 +7,7 @@ const NavHeader = () => {
 
             <img src={Logo} className="nav-logo me-4"/>
 
-            <h3 className="m-0 justify-self-center">
+            <h3 className="m-0 justify-self-center text-light">
                 Ultiminer
             </h3>
         </div>
