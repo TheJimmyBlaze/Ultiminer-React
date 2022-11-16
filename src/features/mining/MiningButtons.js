@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 import TimeDefusedButton from '../common/TimeDefusedButton';
 
@@ -8,6 +9,7 @@ const MiningButtons = ({
 }) => {
 
     const [miningDisabled, setMiningDisabled] = useState(false);
+    const navigate = useNavigate();
 
     const doMine = () => {
         
@@ -39,8 +41,9 @@ const MiningButtons = ({
 
             <div className="d-flex w-100 justify-content-end">
                 <Button variant="secondary"
-                    className="mine-other-button w-100">
-                    <i className="fa-solid fa-dragon" /> Boost
+                    className="mine-other-button"
+                    onClick={() => navigate("/nodes")}>
+                    Swap Nodes
                 </Button>
             </div>
         </div>
