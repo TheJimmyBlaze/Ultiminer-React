@@ -1,6 +1,6 @@
 import PageHeader from "../common/PageHeader";
 
-const NodeSwitcherForm = () => {
+const NodeSwapperForm = () => {
 
     return (
         <div className="d-flex flex-column w-100 mx-4">
@@ -9,4 +9,4 @@ const NodeSwitcherForm = () => {
     )
 };
 
-export default NodeSwitcherForm;
+export default NodeSwapperForm;

@@ -4,7 +4,7 @@ import Login from './features/login/Login';
 import Authentication from './features/authentication/Authentication';
 import MiningForm from './features/mining/MiningForm';
 import InventoryForm from './features/inventory/InventoryForm';
-import NodeSwitcherForm from './features/node_switcher/NodeSwitcherForm';
+import NodeSwapperForm from './features/node_swapper/NodeSwapperForm';
 
 const App = () => {
 
@@ -15,7 +15,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Home />}>
                         <Route index element={<MiningForm />} />
-                        <Route path="nodes" element={<NodeSwitcherForm />} />
+                        <Route path="nodes" element={<NodeSwapperForm />} />
                         <Route path="inventory" element={<InventoryForm />} />
                     </Route>
                     <Route path="/login" element={<Login />} />
