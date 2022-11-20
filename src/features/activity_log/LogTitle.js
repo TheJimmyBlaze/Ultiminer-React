@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from 'react';
-import * as actions from '../activity_log/Actions';
+import * as actions from '../activity_log/actionIdentifiers';
 
 const LogTitle = ({
     date,

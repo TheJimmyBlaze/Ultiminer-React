@@ -13,9 +13,9 @@ import * as item from './itemIdentifiers';
 
 export const useItemSpriteSolver = () => {
 
-    const getSprite = spriteId => {
+    const getSprite = itemId => {
 
-        switch (spriteId) {
+        switch (itemId) {
             
             //Gems
             case item.gemQuartsId:

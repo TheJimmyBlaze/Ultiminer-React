@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import ultiminer from '../config/axiosUltiminer';
 import moment from 'moment';
-import * as actions from '../activity_log/Actions';
+import * as actions from '../activity_log/actionIdentifiers';
 
 export const useMining = ({
     selectedNode,
