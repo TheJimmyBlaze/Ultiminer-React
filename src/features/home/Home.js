@@ -24,6 +24,7 @@ const Home = () => {
     const { selectedNode, getSelectedNode, setSelectedNode } = useNodeSelection();
 
     const { miningResult, mine } = useMining({ 
+        selectedNode,
         addLog,
         setExperience,
         setInventory

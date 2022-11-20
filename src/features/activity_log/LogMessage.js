@@ -3,6 +3,7 @@ import LogTitle from "./LogTitle";
 const LogMessage = ({
     date,
     action,
+    title,
     message
 }) => {
 
@@ -11,6 +12,7 @@ const LogMessage = ({
             <LogTitle 
                 date={date}
                 action={action}
+                title={title}
             />
             {message}
         </div>

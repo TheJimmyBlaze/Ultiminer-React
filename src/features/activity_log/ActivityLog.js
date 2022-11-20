@@ -28,6 +28,7 @@ const ActivityLog = ({
                         key={entry.id}
                         date={entry.date}
                         action={entry.action}
+                        title={entry.title}
                         message={entry.message}
                     />
                 ))

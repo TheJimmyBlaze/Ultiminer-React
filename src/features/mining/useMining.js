@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import ultiminer from '../config/axiosUltiminer';
 import moment from 'moment';
+import * as actions from '../activity_log/Actions';
 
 export const useMining = ({
+    selectedNode,
     addLog,
     setExperience,
     setInventory
@@ -13,7 +15,8 @@ export const useMining = ({
     const generateLog = miningResult => {
 
         const newLog = {
-            action: "Mine",
+            action: actions.mine,
+            title: `Mine ${selectedNode.displayName}`,
             message: (
                 <ul>
                     {miningResult.newItems.map(item => (

@@ -1,9 +1,11 @@
 
 import { useEffect, useState } from 'react';
+import * as actions from '../activity_log/Actions';
 
 const LogTitle = ({
     date,
-    action
+    action,
+    title
 }) => {
 
     const fadeDelay = 500;
@@ -17,7 +19,7 @@ const LogTitle = ({
     const getActionIcon = () => {
 
         switch (action) {
-            case "Mine": 
+            case actions.mine: 
                 return "fa-solid fa-bolt";
             default:
                 return "fa-solid fa-square-question"
@@ -42,7 +44,7 @@ const LogTitle = ({
             </div>
 
             <div className="flex-grow-1">
-                {action} 
+                {title} 
             </div>
             
             <div className="fs-7 fw-lighter ms-1">

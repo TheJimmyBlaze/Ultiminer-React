@@ -10,6 +10,7 @@ export const useActivityLog = () => {
 
     const addLog = ({
         action,
+        title,
         message
     }) => {
 
@@ -17,6 +18,7 @@ export const useActivityLog = () => {
             id: uuid(),
             date: moment(),
             action,
+            title,
             message
         };
 

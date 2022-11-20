@@ -16,12 +16,11 @@ const NodeSwapperForm = () => {
                 unlockedNodes?.unlocked?.map(node => {
                     return (
                         <div key={node.nodeId}>
-                            {node.displayName}
                             <Button onClick={() => {
-                                setSelectedNode(node.nodeId);
+                                setSelectedNode(node);
                                 navigate('/');
                             }}>
-                                Select
+                                {node.displayName}
                             </Button>
                         </div>
                     )

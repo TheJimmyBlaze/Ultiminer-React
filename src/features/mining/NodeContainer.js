@@ -11,8 +11,8 @@ const NodeContainer = ({
         <div className="mine-node-container">
             <div className="position-relative">
             
-                { selectedNode === "Node.Stone" && <StoneNode lastMine={miningResult?.lastMine}/> }
-                { selectedNode === "Node.Flint" && <FlintNode lastMine={miningResult?.lastMine}/> }
+                { selectedNode?.nodeId === "Node.Stone" && <StoneNode lastMine={miningResult?.lastMine}/> }
+                { selectedNode?.nodeId === "Node.Flint" && <FlintNode lastMine={miningResult?.lastMine}/> }
 
             </div>
 

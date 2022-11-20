@@ -22,13 +22,13 @@ export const useNodeSelection = () => {
         }
     }
 
-    const setSelectedNode = async nodeId => {
+    const setSelectedNode = async node => {
 
         try {
 
             const route = '/SelectedNode';
-            await ultiminer.post(route, { nodeId: nodeId });
-            selectNode(nodeId);
+            await ultiminer.post(route, { nodeId: node.nodeId });
+            selectNode(node);
         
         } catch (err) {
             console.log(`Error settings selected node: ${err}`);
