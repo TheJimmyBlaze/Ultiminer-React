@@ -17,6 +17,9 @@ const DiscordHeader = () => {
     useEffect(() => {
 
         const token = parseToken();
+        if (token == null) {
+            return;
+        }
 
         //Set display name
         setDisplayName(token.name);

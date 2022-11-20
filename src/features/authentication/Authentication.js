@@ -13,7 +13,7 @@ const Authentication = () => {
 
     useEffect(() => {
 
-        setTimeout(() => {
+        const timeout = setTimeout(() => {
             console.error(`No login response received after: ${authTimeout}ms`);
             setWorking(false);
         }, authTimeout);
@@ -21,6 +21,8 @@ const Authentication = () => {
         receiveToken().then(_ => {
             setWorking(false);
         });
+
+        return () => clearTimeout(timeout);
     }, []);
 
     return (

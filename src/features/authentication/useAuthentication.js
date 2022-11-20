@@ -32,7 +32,7 @@ export const useAuthentication = () => {
 
         const token = getTokenCookie();
 
-        if (!token) {
+        if (token == null) {
             return logout();
         }
 

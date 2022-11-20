@@ -32,7 +32,11 @@ const Home = () => {
     //Initializes game state
     useEffect(() => {
         
-        validateToken();
+        const token = validateToken();
+        if (token == null) {
+            return;
+        }
+
         getExperience();
         getInventory();
         getUnlockedNodes();
@@ -42,7 +46,11 @@ const Home = () => {
 
     //Re-retrieve unlocked nodes when the players level changes
     useEffect(() => { 
-        getUnlockedNodes();
+
+        if (experience?.level > 1)
+        {
+            getUnlockedNodes();
+        }
     }, [experience?.level]);
 
     return (

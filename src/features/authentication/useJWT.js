@@ -10,7 +10,6 @@ export const useJWT = () => {
         //Read token from cookie
         const token = getTokenCookie();
         if (token == null) {
-            console.error("JWT Parse Error: no token exists");
             return null;
         }
 

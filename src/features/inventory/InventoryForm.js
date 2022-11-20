@@ -19,7 +19,9 @@ const InventoryForm = () => {
             <div className="d-flex my-4 align-items-start">
                 {
                     inventory?.totalResources.map(item => (
-                        <ItemFrame sprite={getSprite(item.resourceId)} 
+                        <ItemFrame 
+                            key={item.resourceId}
+                            sprite={getSprite(item.resourceId)} 
                             quantity={item.count}
                         />
                     ))
