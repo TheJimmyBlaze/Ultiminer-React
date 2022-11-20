@@ -15,14 +15,10 @@ const NavItem = memo(({
         setSelected(path === location.pathname.toLowerCase());
     }, [location, path])
 
-    const Navigate = () => {
-        navigate(path);
-    }
-
     return (
 
         <h5 className={`d-flex align-items-center p-2 text-muted nav-item ${selected ? "selected" : ""}`}
-            onClick={() => Navigate()}
+            onClick={() => navigate(path)}
         >
 
             <div className="me-4 nav-item-icon">

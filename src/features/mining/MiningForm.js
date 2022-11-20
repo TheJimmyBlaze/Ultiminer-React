@@ -8,7 +8,7 @@ import './Mining.css';
 
 const MiningForm = () => {
 
-    const { experience, miningResult, mine } = useOutletContext();
+    const { experience, miningResult, mine, selectedNode } = useOutletContext();
 
     return (
         <div className="d-flex flex-column">
@@ -17,6 +17,7 @@ const MiningForm = () => {
 
                 <NodeContainer 
                     miningResult={miningResult}
+                    selectedNode={selectedNode}
                 />
 
                 <MiningButtons 

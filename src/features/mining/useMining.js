@@ -35,8 +35,7 @@ export const useMining = ({
             
             //Hit the mine api
             const route = '/Mine';
-            const request = { nodeId: 'Node.Stone' };  //Only mining stone for now
-            const response = await ultiminer.post(route, request);
+            const response = await ultiminer.post(route);
 
 
             //Store the result in the lastMine state

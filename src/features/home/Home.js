@@ -5,11 +5,13 @@ import { useAuthentication } from '../authentication/useAuthentication';
 import { useExperience } from '../experience/useExperience';
 import { useInventory } from '../inventory/useInventory';
 import { useMining } from '../mining/useMining';
+import { useNodeSelection } from '../node_swapper/useNodeSelection';
 import NavigationForm from '../navigation/NavForm';
 import InsightForm from '../insight/InsightForm';
 
 import './Home.css';
 import { useActivityLog } from '../activity_log/useActivityLog';
+import { useUnlockedNodes } from '../node_swapper/useUnlockedNodes';
 
 const Home = () => {
 
@@ -18,6 +20,8 @@ const Home = () => {
     const { log, addLog } = useActivityLog();
     const { experience, getExperience, setExperience } = useExperience();
     const { inventory, getInventory, setInventory } = useInventory();
+    const { unlockedNodes, getUnlockedNodes } = useUnlockedNodes();
+    const { selectedNode, getSelectedNode, setSelectedNode } = useNodeSelection();
 
     const { miningResult, mine } = useMining({ 
         addLog,
@@ -31,8 +35,15 @@ const Home = () => {
         validateToken();
         getExperience();
         getInventory();
+        getUnlockedNodes();
+        getSelectedNode();
 
     }, []);
+
+    //Re-retrieve unlocked nodes when the players level changes
+    useEffect(() => { 
+        getUnlockedNodes();
+    }, [experience?.level]);
 
     return (
 
@@ -43,9 +54,12 @@ const Home = () => {
             <div className="d-flex justify-content-center w-100 home-panel">
                 <Outlet context={{
                     experience,
+                    unlockedNodes,
                     inventory,
                     miningResult,
-                    mine
+                    mine,
+                    selectedNode,
+                    setSelectedNode
                 }}/>            
             </div>
 

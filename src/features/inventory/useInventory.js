@@ -8,21 +8,17 @@ export const useInventory = () => {
 
     const getInventory = async () => {
 
-        //If inventory is null, call the API to load the items
-        if (inventory === null) {
+        try {
 
-            try {
+            const route = '/Resources';
+            const response = await ultiminer.get(route);
 
-                const route = '/Resources';
-                const response = await ultiminer.get(route);
+            //Store the result in state
+            const result = response.data.value;
+            setInventory(result);
 
-                //Store the result in state
-                const result = response.data.value;
-                setInventory(result);
-
-            } catch (err) {
-                console.log(`Error loading experience: ${err}`);
-            }
+        } catch (err) {
+            console.log(`Error loading experience: ${err}`);
         }
     };
 
