@@ -1,6 +1,0 @@
-Bounds:         420-300
-
-Bottom:         0-20
-Top:            40-0
-BigPebble:      10-160
-SmallPebble:    80-210
