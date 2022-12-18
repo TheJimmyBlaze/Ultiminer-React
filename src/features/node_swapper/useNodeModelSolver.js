@@ -7,6 +7,9 @@ import flintSprite from '../../resources/nodes/flint/flint_sprite.png';
 import flintSilhouette from '../../resources/nodes/flint/flint_silhouette.png';
 import FlintNode from "../mining/nodes/FlintNode";
 
+import coalSprite from '../../resources/nodes/coal/coal_sprite.png';
+import coalSilhouette from '../../resources/nodes/coal/coal_silhouette.png';
+
 import * as node from './nodeIdentifiers';
 
 export const useNodeModelSolver = () => {
@@ -29,6 +32,8 @@ export const useNodeModelSolver = () => {
                 return packModel(stoneSprite, stoneSilhouette, StoneNode);
             case node.flint:
                 return packModel(flintSprite, flintSilhouette, FlintNode);
+            case node.coal:
+                return packModel(coalSprite, coalSilhouette, StoneNode);
         }
     };
 
