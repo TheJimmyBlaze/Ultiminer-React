@@ -9,6 +9,8 @@ import rodWooden from '../../resources/items/treasures/rod_wooden.png';
 import bindingLinen from '../../resources/items/treasures/binding_linen.png';
 import cubeBrass from '../../resources/items/treasures/cube_brass.png';
 
+import missingItem from '../../resources/items/missing_item.png';
+
 import * as item from './itemIdentifiers';
 
 export const useItemSpriteSolver = () => {
@@ -36,6 +38,10 @@ export const useItemSpriteSolver = () => {
                 return bindingLinen;
             case item.treasureCubeBrass:
                 return cubeBrass;
+
+            //Missing
+            default:
+                return missingItem;
         }
     }
 
