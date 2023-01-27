@@ -9,6 +9,13 @@ import FlintNode from '../mining/nodes/FlintNode';
 
 import coalSprite from '../../resources/nodes/coal/coal_sprite.png';
 import coalSilhouette from '../../resources/nodes/coal/coal_silhouette.png';
+import CoalNode from '../mining/nodes/CoalNode';
+
+import tinSprite from '../../resources/nodes/tin/tin_sprite.png';
+import tinSilhouette from '../../resources/nodes/tin/tin_silhouette.png';
+
+import copperSprite from '../../resources/nodes/copper/copper_sprite.png';
+import copperSilhouette from '../../resources/nodes/copper/copper_silhouette.png';
 
 import missingSprite from '../../resources/nodes/missing/missing_sprite.png';
 import missingSilhouette from '../../resources/nodes/missing/missing_silhouette.png';
@@ -37,7 +44,11 @@ export const useNodeModelSolver = () => {
             case node.flint:
                 return packModel(flintSprite, flintSilhouette, FlintNode);
             case node.coal:
-                return packModel(coalSprite, coalSilhouette, MissingNode);
+                return packModel(coalSprite, coalSilhouette, CoalNode);
+            case node.tin:
+                return packModel(tinSprite, tinSilhouette, MissingNode);
+            case node.copper:
+                return packModel(copperSprite, copperSilhouette, MissingNode);
 
             //If no node was found, return the Missing Node
             default:
